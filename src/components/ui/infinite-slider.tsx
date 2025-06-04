@@ -16,8 +16,8 @@ type InfiniteSliderProps = {
 
 export function InfiniteSlider({
   children,
-  gap = 16,
-  duration = 25,
+  gap = 20,
+  duration = 60,
   durationOnHover,
   direction = "horizontal",
   reverse = false,
@@ -86,9 +86,9 @@ export function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn("overflow-hidden", className)}>
+    <div className={cn("overflow-hidden bg-[#FCFAF8]", className)}>
       <motion.div
-        className="flex w-max"
+        className="flex w-max bg-[#FCFAF8]"
         style={{
           ...(direction === "horizontal"
             ? { x: translation }

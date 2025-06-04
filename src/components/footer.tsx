@@ -1,29 +1,53 @@
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-black rounded-t-4xl h-80 p-10 text-white flex flex-col justify-between overflow-visible">
-      <div className="flex justify-between flex-wrap">
-        <div className="flex flex-row gap-3">
-          <div>About us</div>
-          <div>Contact</div>
-          <div>News</div>
-          <div>Our impact</div>
+    <div className="bg-[#308021] rounded-t-4xl h-80 p-10 text-[#FFF9EB] flex flex-col justify-between overflow-hidden metropolitano">
+      <div className="flex justify-between flex-wrap ">
+        <div className="flex flex-row gap-x-3 flex-wrap">
+          <Link href="/about" className="hover:underline">
+            About us
+          </Link>
+          <Link href="/contact" className="hover:underline">
+            Contact
+          </Link>
+          <Link href="/events" className="hover:underline">
+            Events
+          </Link>
+          <Link href="/markets" className="hover:underline">
+            Markets
+          </Link>
+          <Link href="/corporateevents" className="hover:underline">
+            Corporate Events
+          </Link>
+          <Link href="/updates" className="hover:underline">
+            Updates
+          </Link>
+          <Link href="/impact" className="hover:underline">
+            Our impact
+          </Link>
         </div>
         <div className="flex flex-row gap-3">
-          <div>Terms of service</div>
-          <div>Privacy policy</div>
+          <Link href="/terms" className="hover:underline">
+            Terms of service
+          </Link>
+          <Link href="/privacy" className="hover:underline">
+            Privacy policy
+          </Link>
         </div>
       </div>
 
       <div className="flex flex-row justify-between items-end">
         <div className="flex flex-col gap-2">
-          <div className="text-4xl">The Useless Project</div>
-          <div className="w-3/4 lg:w-fit">
+          <p className="lg:text-6xl metropolitano text-4xl">
+            The Useless Project
+          </p>
+          <p className="w-3/4 lg:w-fit metropolitano">
             A Space to Reconnect—with People, Planet & Creativity
-          </div>
+          </p>
         </div>
-        <div>@2025</div>
+        <div className="font">@2025</div>
       </div>
     </div>
   );

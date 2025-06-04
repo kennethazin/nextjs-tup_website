@@ -9,9 +9,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, MoveRight, X } from "lucide-react";
+import { InstagramIcon, Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Header1() {
   const navigationItems = [
@@ -23,7 +24,6 @@ function Header1() {
     {
       title: "About us",
       href: "/about",
-      description: "",
     },
     {
       title: "What we do",
@@ -40,7 +40,7 @@ function Header1() {
         },
         {
           title: "Corporate events & workshops",
-          href: "/corporate_events",
+          href: "/corporateevents",
         },
       ],
     },
@@ -48,15 +48,24 @@ function Header1() {
       title: "Updates",
       href: "/updates",
     },
+    {
+      title: "Our impact",
+      href: "/impact",
+    },
   ];
 
   const [isOpen, setOpen] = useState(false);
   return (
-    <header className="w-full z-40  top-0 left-0 bg-background fixed ">
+    <header className="w-full z-40 top-0 left-0 bg-background metropolitano">
       <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
-        <div className="flex lg:justify-center">
+        <div className="flex  ">
           <Link className="font-semibold pl-3 leading-3.5" href="/">
-            The Useless Project
+            <Image
+              src="/tup_logo.png"
+              alt="The Useless Project logo"
+              width={90}
+              height={90}
+            />
           </Link>
         </div>
         <div className="justify-center items-center gap-4 lg:flex hidden flex-row">
@@ -66,26 +75,30 @@ function Header1() {
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
                     <>
-                      <NavigationMenuLink>
-                        <Button variant="ghost">{item.title}</Button>
-                      </NavigationMenuLink>
+                      <Link href={item.href} legacyBehavior passHref>
+                        <NavigationMenuLink>
+                          <Button variant="ghost">{item.title}</Button>
+                        </NavigationMenuLink>
+                      </Link>
                     </>
                   ) : (
                     <>
                       <NavigationMenuTrigger className="font-medium text-sm">
                         {item.title}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="!w-[450px] p-4">
+                      <NavigationMenuContent className="!w-[450px] p-4 metropolitano">
                         <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                           <div className="flex flex-col h-full justify-between">
                             <div className="flex flex-col">
-                              <p className="text-base">{item.title}</p>
-                              <p className="text-muted-foreground text-sm">
+                              <p className="text-base metropolitano">
+                                {item.title}
+                              </p>
+                              <p className="text-muted-foreground text-sm ">
                                 {item.description}
                               </p>
                             </div>
-                            <Button size="sm" className="mt-10">
-                              Join the community
+                            <Button size="sm" className="mt-10 gap-2">
+                              Join the community <InstagramIcon size={20} />
                             </Button>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
@@ -110,11 +123,11 @@ function Header1() {
           </NavigationMenu>
         </div>
 
-        <div className="flex justify-end w-full gap-4">
+        <a className="flex justify-end w-full gap-4" href="/contact">
           <Button variant="ghost" className="hidden md:inline">
             Contact
           </Button>
-        </div>
+        </a>
         <div className="flex w-12 shrink lg:hidden items-end justify-end ">
           <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
