@@ -34,7 +34,7 @@ export default function SimpleMap() {
       className="border"
     >
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyBho8CyIwh4l_JeVPq8ZJLdXFSFgkZ0UQY" }}
+        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_MAP_KEY as string }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
