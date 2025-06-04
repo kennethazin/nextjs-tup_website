@@ -134,7 +134,14 @@ const Gallery4 = ({
                             <div className="text-xs sm:text-xs">
                               <Badge className="gap-1 " variant={"secondary"}>
                                 {item.date
-                                  ? new Date(item.date).toLocaleDateString()
+                                  ? new Date(item.date).toLocaleDateString(
+                                      "en-GB",
+                                      {
+                                        year: "numeric",
+                                        month: "2-digit",
+                                        day: "2-digit",
+                                      }
+                                    )
                                   : "TBD"}
                               </Badge>
                             </div>

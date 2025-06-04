@@ -15,7 +15,7 @@ export default function Markets() {
           <InfiniteImages />
         </div>
         <div className="flex flex-col lg:flex-row w-full gap-8 ">
-          <div className="bg-[#479239] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#FFF9EB] flex justify-between flex-col p-8 rounded-4xl">
+          <div className="border bg-[#479239] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#FFF9EB] flex justify-between flex-col p-8 rounded-4xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="102"
@@ -30,7 +30,7 @@ export default function Markets() {
             </svg>
             <div className="space-y-5">
               <h3 className="text-5xl">
-                The useless project flea market at Portobello Hall
+                The Useless Project Flea Market at Portobello Hall
               </h3>
               <p>
                 A monthly flea market packed with preloved fashion, homeware,
@@ -94,7 +94,7 @@ export default function Markets() {
             <SimpleMap />
           </div>
         </div>
-        <div className="bg-[#D9CDB5] flex flex-row w-full lg:w-1/2 self-start p-14 rounded-4xl text-6xl uppercase mt-12 items-center ">
+        <div className="bg-[#D9CDB5] border flex flex-row w-full lg:w-1/2 self-start p-14 rounded-4xl text-6xl uppercase mt-12 items-center ">
           <p>Apply for a stall</p>
           <ArrowUpRightIcon size={150} strokeWidth={0.8} />
         </div>

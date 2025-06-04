@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header1 } from "@/components/header";
 import Footer from "@/components/footer";
 import Partners from "@/components/partners";
+import LenisProvider from "@/lib/LenisProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-[#FCFAF8]`}
       >
+        <LenisProvider />
+
         <Header1 />
         <main className="flex-grow px-4 py-10 mb-50">{children}</main>
         <Partners />

@@ -11,7 +11,7 @@ export default function CorporateEvents() {
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="bg-[#ECE4D3] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#031100] flex justify-between flex-col p-8 rounded-4xl">
+          <div className="bg-[#ECE4D3] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#031100] flex justify-between flex-col p-8 rounded-4xl border">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="87"
@@ -57,7 +57,7 @@ export default function CorporateEvents() {
                   textAnchor="middle"
                   fill="#031100"
                   fontFamily="inherit"
-                  className="futura"
+                  className="futura font-medium hover:underline"
                 >
                   Download
                 </text>
@@ -66,7 +66,7 @@ export default function CorporateEvents() {
             <div></div>
           </div>
           <div className="flex flex-col gap-8 w-full lg:w-1/2">
-            <div className="bg-[#F38BBB] flex-1 text-[#FFF9EB] flex justify-center flex-col p-8 rounded-4xl items-center space-y-8">
+            <div className="bg-[#F38BBB] flex-1 text-[#FFF9EB] flex justify-center flex-col p-8 rounded-4xl items-center space-y-8 border ">
               <p className="text-center">
                 If you’d like to get us into your business or if you have any
                 questions?
@@ -95,7 +95,7 @@ export default function CorporateEvents() {
                 </text>
               </svg>
             </div>
-            <div className="flex-1 w-full rounded-4xl overflow-hidden">
+            <div className="flex-1 w-full rounded-4xl overflow-hidden border">
               <div className="relative w-full h-64 md:h-80 lg:h-full">
                 <Image
                   src="/corporate.jpg"

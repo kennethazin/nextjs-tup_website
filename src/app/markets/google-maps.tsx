@@ -31,6 +31,7 @@ export default function SimpleMap() {
         borderRadius: "30px",
         overflow: "hidden",
       }}
+      className="border"
     >
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyBho8CyIwh4l_JeVPq8ZJLdXFSFgkZ0UQY" }}

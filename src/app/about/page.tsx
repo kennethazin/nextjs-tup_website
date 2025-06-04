@@ -15,7 +15,7 @@ export default function About() {
         {/* Top Row */}
         <div className="flex flex-col md:flex-row w-full max-w-7xl gap-6 md:h-[520px]">
           {/* Image Card */}
-          <div className="w-full md:w-[30%] bg-white rounded-2xl shadow-md flex items-center justify-center relative p-0 overflow-hidden min-h-[300px] md:min-h-0">
+          <div className="w-full border md:w-[30%] bg-white rounded-2xl shadow-md flex items-center justify-center relative p-0 overflow-hidden min-h-[300px] md:min-h-0">
             {/* Star icon */}
             <div className="absolute top-4 left-4 z-10">
               <svg
@@ -107,7 +107,7 @@ export default function About() {
             </div>
           </div>
           {/* Image Card with overlay */}
-          <div className="w-full md:w-[30%] bg-white rounded-2xl shadow-md flex items-end justify-center relative p-0 overflow-hidden min-h-[500px] md:min-h-0">
+          <div className="w-full border md:w-[30%] bg-white rounded-2xl shadow-md flex items-end justify-center relative p-0 overflow-hidden min-h-[500px] md:min-h-0">
             {/* Star icon */}
             <div className="absolute top-4 left-4 z-10">
               <svg
