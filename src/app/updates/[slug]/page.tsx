@@ -52,7 +52,10 @@ export default async function UpdatePage({ params }: any) {
 
   return (
     <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4">
-      <Link href="/updates" className="hover:underline">
+      <Link
+        href="/updates"
+        className="hover:underline metropolitano font-medium"
+      >
         ← Back to updates
       </Link>
       <h1 className="text-5xl text-center lg:text-8xl lg:text-left font-bold mb-8">

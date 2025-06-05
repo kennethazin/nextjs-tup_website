@@ -2,6 +2,7 @@ import { type SanityDocument } from "next-sanity";
 import { Gallery4 } from "@/components/ui/gallery4";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
+import Hero from "@/components/hero";
 
 const UPDATES_QUERY = `*[
   _type == "Update"
@@ -45,10 +46,9 @@ export default async function UpdatesPage() {
   };
 
   return (
-    <main className="mx-auto min-h-screen max-w-8xl p-8">
+    <main className="mx-auto min-h-screen max-w-8xl">
       <div className="flex justify-center items-center flex-col mt-40 mb-40 gap-5">
-        <h1 className="text-8xl tracking-tighter">Updates</h1>
-        <h2 className="text-3xl text-[#6b6f6a] ">See what&apos;s new</h2>
+        <Hero title="Updates" subtitle="See what's new" />
       </div>
       <Gallery4 galleryType={"update"} {...updatesSection} />
     </main>

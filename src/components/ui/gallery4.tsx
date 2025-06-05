@@ -119,7 +119,7 @@ const Gallery4 = ({
                       src={item.image}
                       alt={item.title}
                       fill
-                      className={`object-cover object-center transition-transform duration-300 ${
+                      className={`object-cover object-center transition-transform duration-300 hover:opacity-80  ${
                         galleryType === "event" ? "group-hover:scale-105" : ""
                       }`}
                       sizes="(min-width: 1024px) 720px, 100vw"
@@ -127,12 +127,17 @@ const Gallery4 = ({
                     />
                     {galleryType === "event" && (
                       <>
-                        <div className="absolute inset-0 bg-black/40" />
+                        {item.image?.trim() && (
+                          <div className="absolute inset-0 bg-black/40" />
+                        )}
                         <div className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0),hsl(var(--primary)/0.4),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" />
                         <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-primary-foreground md:p-8">
                           <div className="flex flex-row items-center gap-x-5 mb-0">
                             <div className="text-xs sm:text-xs">
-                              <Badge className="gap-1 " variant={"secondary"}>
+                              <Badge
+                                className="gap-1 futura "
+                                variant={"secondary"}
+                              >
                                 {item.date
                                   ? new Date(item.date).toLocaleDateString(
                                       "en-GB",

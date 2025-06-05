@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ExternalLink, Calendar } from "lucide-react";
+import Link from "next/link";
 
 interface Event {
   id: string;
@@ -17,12 +18,6 @@ interface EventsTableProps {
 
 export default function EventsTable({ events }: EventsTableProps) {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
-
-  const handleRowClick = (event: Event) => {
-    if (event.url) {
-      window.open(event.url, "_blank");
-    }
-  };
 
   return (
     <div className="w-full  mx-auto p-6 ">
@@ -49,59 +44,84 @@ export default function EventsTable({ events }: EventsTableProps) {
 
         {/* Event Rows */}
         <div className="space-y-0">
-          {events.map((event, index) => (
-            <div
-              key={event.id}
-              className={`
-                grid grid-cols-12 gap-4 py-6 border-b border-gray-100 cursor-pointer
-                transition-colors duration-300 ease-in-out
-                ${hoveredRow === index ? "bg-gray-100" : "hover:bg-gray-100"}
-              `}
-              onMouseEnter={() => setHoveredRow(index)}
-              onMouseLeave={() => setHoveredRow(null)}
-              onClick={() => handleRowClick(event)}
-            >
-              <div className="col-span-5 md:col-span-4 flex items-center">
-                <div className="flex items-center space-x-3">
-                  <span
-                    className={`
-                    text-gray-900 font-medium transition-colors duration-300
-                    ${hoveredRow === index ? "text-pink-600" : ""}
-                  `}
-                  >
-                    {event.name}
-                  </span>
+          {events.map((event, index) => {
+            const rowContent = (
+              <div
+                className={`
+                  grid grid-cols-12 gap-4 py-6 border-b border-gray-100 cursor-pointer
+                  transition-colors duration-300 ease-in-out
+                  ${hoveredRow === index ? "bg-gray-100" : "hover:bg-gray-100"}
+                `}
+                onMouseEnter={() => setHoveredRow(index)}
+                onMouseLeave={() => setHoveredRow(null)}
+                // Remove onClick, handled by link/a
+              >
+                <div className="col-span-5 md:col-span-4 flex items-center">
+                  <div className="flex items-center space-x-3">
+                    <span
+                      className={`
+                      text-gray-900 font-medium transition-colors duration-300
+                      ${hoveredRow === index ? "text-pink-600" : ""}
+                    `}
+                    >
+                      {event.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="col-span-3 md:col-span-3 flex items-center">
-                <div className="flex items-center space-x-2 text-gray-600">
-                  <Calendar
+                <div className="col-span-3 md:col-span-3 flex items-center">
+                  <div className="flex items-center space-x-2 text-gray-600">
+                    <Calendar
+                      className={`
+                      w-4 h-4 transition-colors duration-300 hidden sm:block
+                      ${hoveredRow === index ? "text-pink-500" : "text-gray-400"}
+                    `}
+                    />
+                    <span className="text-sm">{event.date}</span>
+                  </div>
+                </div>
+
+                <div className="col-span-3 md:col-span-4 flex items-center">
+                  <div className="flex items-center space-x-2 text-gray-600">
+                    <span className="text-sm">{event.type}</span>
+                  </div>
+                </div>
+
+                <div className="col-span-1 flex items-center justify-end">
+                  <ExternalLink
                     className={`
                     w-4 h-4 transition-colors duration-300 hidden sm:block
                     ${hoveredRow === index ? "text-pink-500" : "text-gray-400"}
                   `}
                   />
-                  <span className="text-sm">{event.date}</span>
                 </div>
               </div>
+            );
 
-              <div className="col-span-3 md:col-span-4 flex items-center">
-                <div className="flex items-center space-x-2 text-gray-600">
-                  <span className="text-sm">{event.type}</span>
-                </div>
-              </div>
-
-              <div className="col-span-1 flex items-center justify-end">
-                <ExternalLink
-                  className={`
-                  w-4 h-4 transition-colors duration-300 hidden sm:block
-                  ${hoveredRow === index ? "text-pink-500" : "text-gray-400"}
-                `}
-                />
-              </div>
-            </div>
-          ))}
+            if (event.url) {
+              if (event.url.startsWith("/")) {
+                return (
+                  <Link href={event.url} key={event.id} legacyBehavior>
+                    <a tabIndex={0}>{rowContent}</a>
+                  </Link>
+                );
+              } else {
+                return (
+                  <a
+                    href={event.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={event.id}
+                    tabIndex={0}
+                  >
+                    {rowContent}
+                  </a>
+                );
+              }
+            }
+            // No link
+            return <div key={event.id}>{rowContent}</div>;
+          })}
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import Hero from "@/components/hero";
 export default function Markets() {
   return (
     <>
-      <main className="mx-auto min-h-screen max-w-8xl p-8">
+      <main className="mx-auto min-h-screen max-w-8xl ">
         <div className="flex justify-center items-center flex-col mt-40 mb-40">
           <Hero
             title="Markets"

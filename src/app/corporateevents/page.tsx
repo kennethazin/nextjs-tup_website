@@ -3,7 +3,7 @@ import Hero from "@/components/hero";
 export default function CorporateEvents() {
   return (
     <>
-      <main className="mx-auto min-h-screen max-w-8xl p-8">
+      <main className="mx-auto min-h-screen max-w-8xl">
         <div className="flex justify-center items-center flex-col mt-40 mb-40 px-4">
           <Hero
             title="Corporate Events & Workshops"

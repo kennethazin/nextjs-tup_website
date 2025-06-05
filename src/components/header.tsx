@@ -10,7 +10,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { InstagramIcon, Menu, MoveRight, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -55,9 +55,28 @@ function Header1() {
   ];
 
   const [isOpen, setOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   return (
     <header className="w-full z-40 top-0 left-0 bg-background metropolitano">
-      <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
+      <div
+        className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center"
+        ref={headerRef}
+      >
         <div className="flex  ">
           <Link className="font-semibold pl-3 leading-3.5" href="/">
             <Image
@@ -133,8 +152,8 @@ function Header1() {
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
           {isOpen && (
-            <div className="absolute top-20  flex flex-col w-full   bg-background py-4">
-              <div className="container mx-auto px-4 ">
+            <div className="absolute top-20  flex flex-col w-full   bg-background py-4 metropolitano">
+              <div className="container mx-auto px-4 metropolitano ">
                 {navigationItems.map((item) => (
                   <div key={item.title} className="mb-6">
                     <div className="flex flex-col gap-2">
@@ -142,12 +161,15 @@ function Header1() {
                         <Link
                           href={item.href}
                           className="flex justify-between items-center"
+                          onClick={() => setOpen(false)}
                         >
-                          <span className="text-lg">{item.title}</span>
+                          <span className="text-lg metropolitano">
+                            {item.title}
+                          </span>
                           <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                         </Link>
                       ) : (
-                        <p className="text-lg">{item.title}</p>
+                        <p className="text-lg metropolitano">{item.title}</p>
                       )}
                       {item.items &&
                         item.items.map((subItem) => (
@@ -155,6 +177,7 @@ function Header1() {
                             key={subItem.title}
                             href={subItem.href}
                             className="flex justify-between items-center"
+                            onClick={() => setOpen(false)}
                           >
                             <span className="text-muted-foreground">
                               {subItem.title}
