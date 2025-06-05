@@ -74,7 +74,7 @@ function Header1() {
   return (
     <header className="w-full z-40 top-0 left-0 bg-background metropolitano">
       <div
-        className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center"
+        className="container metropolitano relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center"
         ref={headerRef}
       >
         <div className="flex  ">
@@ -89,9 +89,9 @@ function Header1() {
         </div>
         <div className="justify-center items-center gap-4 lg:flex hidden flex-row">
           <NavigationMenu className="flex justify-start items-start">
-            <NavigationMenuList className="flex justify-start gap-4 flex-row">
+            <NavigationMenuList className="flex justify-start gap-4 flex-row metropolitano">
               {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
+                <NavigationMenuItem key={item.title} className="metropolitano">
                   {item.href ? (
                     <>
                       <Link href={item.href} legacyBehavior passHref>
@@ -102,7 +102,7 @@ function Header1() {
                     </>
                   ) : (
                     <>
-                      <NavigationMenuTrigger className="font-medium text-sm">
+                      <NavigationMenuTrigger className="font-medium text-sm metropolitano">
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="!w-[450px] p-4 metropolitano">

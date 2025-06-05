@@ -145,7 +145,12 @@ const Main = () => {
     <main className="m-auto mb-20">
       <section className="h-screen flex flex-col items-center justify-center">
         <div className="text-5xl mb-40 leading-12 md:text-8xl md:leading-20 lg:text-9xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium ">
-          <TextEffect per="word" as="h1" preset="slide">
+          <TextEffect
+            per="word"
+            as="h1"
+            preset="slide"
+            className="tracking-tighter leading-13 md:leading-25 lg:leading-30"
+          >
             A Space to Reconnect—with People, Planet & Creativity
           </TextEffect>
         </div>
