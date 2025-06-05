@@ -32,8 +32,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-[#FCFAF8]`}
       >
         <LenisProvider />
-
-        <Header1 />
+        <header className="sticky top-0 z-50 bg-[#FCFAF8]">
+          <Header1 />
+        </header>
         <main className="flex-grow px-4 py-10 mb-50">{children}</main>
         <Partners />
         <Footer />

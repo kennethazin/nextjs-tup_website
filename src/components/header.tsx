@@ -116,9 +116,16 @@ function Header1() {
                                 {item.description}
                               </p>
                             </div>
-                            <Button size="sm" className="mt-10 gap-2">
-                              Join the community <InstagramIcon size={20} />
-                            </Button>
+                            <a
+                              href="https://instagram.com/theuselessproject"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Button size="sm" className="mt-10 gap-2">
+                                Join the community{" "}
+                                <InstagramIcon size={20} strokeWidth={1} />
+                              </Button>
+                            </a>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
                             {item.items?.map((subItem) => (

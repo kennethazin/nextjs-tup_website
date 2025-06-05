@@ -8,7 +8,7 @@ const Main = () => {
     {
       id: "1",
       href: "/",
-      cta: "Learn more",
+      cta: "",
       background: (
         <Image
           src="/5.jpg"
@@ -22,7 +22,7 @@ const Main = () => {
     },
     {
       id: "2",
-      href: "/",
+      href: "/corporateevents",
       cta: "Join our workshops",
       background: (
         <Image
@@ -37,7 +37,7 @@ const Main = () => {
     },
     {
       id: "3",
-      href: "/",
+      href: "/events",
       cta: "View events",
       background: (
         <Image
@@ -65,7 +65,7 @@ const Main = () => {
     },
     {
       id: "5",
-      href: "/",
+      href: "/about",
       cta: "Learn our story",
       background: (
         <Image
@@ -96,7 +96,7 @@ const Main = () => {
     },
     {
       id: "7",
-      href: "/",
+      href: "/events",
       cta: "See our past events",
       background: (
         <Image
