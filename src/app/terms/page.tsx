@@ -2,8 +2,6 @@ import React from "react";
 import { client } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
 
-const { projectId, dataset } = client.config();
-
 async function getTerms() {
   const query = `*[_type == "terms"][0]{
     lastUpdated,
