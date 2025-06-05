@@ -1,7 +1,6 @@
 import React from "react";
 import { client } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
-import { color } from "motion/react";
 
 async function getPrivacy() {
   const query = `*[_type == "privacy"][0]{
