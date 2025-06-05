@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#308021] rounded-t-4xl h-80 p-10 text-[#FFF9EB] flex flex-col justify-between overflow-hidden metropolitano">
+    <div className="bg-[#308021] rounded-t-4xl h-fit p-6 text-[#FFF9EB] flex flex-col justify-between overflow-hidden metropolitano space-y-10">
       <div className="flex justify-between flex-wrap ">
         <div className="flex flex-row gap-x-3 flex-wrap">
           <Link href="/about" className="hover:underline">
@@ -43,7 +43,7 @@ const Footer = () => {
           <p className="lg:text-6xl metropolitano text-4xl">
             The Useless Project
           </p>
-          <p className="w-3/4 lg:w-fit metropolitano">
+          <p className="w-full lg:w-fit metropolitano">
             A Space to Reconnect—with People, Planet & Creativity
           </p>
         </div>
