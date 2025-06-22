@@ -1,4 +1,8 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
+import React from "react";
 import { PortableText, type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -12,6 +16,8 @@ import {
   CarouselIndicator,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const UPDATE_QUERY = `*[_type == "Update" && slug.current == $slug][0]`;
 
@@ -23,18 +29,27 @@ const urlFor = (source: SanityImageSource) =>
 
 const options = { next: { revalidate: 30 } };
 
-export default async function UpdatePage({ params }: any) {
-  const update = await client.fetch<SanityDocument>(
+// Helper to fetch update data
+async function fetchUpdate(slug: string) {
+  return await client.fetch<SanityDocument>(
     UPDATE_QUERY,
-    params,
+    { slug },
     options
   );
+}
+
+export default function UpdatePage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = React.use(paramsPromise);
+  const [update, setUpdate] = useState<SanityDocument | null>(null);
+
+  useEffect(() => {
+    fetchUpdate(params.slug).then(setUpdate);
+  }, [params.slug]);
 
   const updateImages =
-    update.images
-      ?.filter(Boolean) // Ensure images exist
+    update?.images
+      ?.filter(Boolean)
       .map((image: SanityImageSource) => {
-        // Type guard for asset property
         const hasAsset =
           typeof image === "object" &&
           image !== null &&
@@ -50,6 +65,14 @@ export default async function UpdatePage({ params }: any) {
         };
       }) || [];
 
+  if (!update) {
+    return (
+      <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4">
+        <p>Loading...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4">
       <Link
@@ -64,30 +87,35 @@ export default async function UpdatePage({ params }: any) {
       <div className="flex justify-center">
         {updateImages.length > 0 ? (
           <div className="relative w-full max-w-md mb-10">
-            <Carousel>
-              <CarouselContent>
-                {updateImages.map(
-                  (
-                    {
-                      url,
-                      isHorizontal,
-                    }: { url: string | undefined; isHorizontal: boolean },
-                    index: number
-                  ) => (
-                    <CarouselItem key={index} className="p-4">
-                      <Image
-                        src={url as string}
-                        alt={`${update.title} - Image ${index + 1}`}
-                        width={isHorizontal ? 859 : 570}
-                        height={isHorizontal ? 570 : 859}
-                      />
-                    </CarouselItem>
-                  )
-                )}
-              </CarouselContent>
-              <CarouselNavigation alwaysShow />
-              <CarouselIndicator />
-            </Carousel>
+            <PhotoProvider>
+              <Carousel>
+                <CarouselContent>
+                  {updateImages.map(
+                    (
+                      {
+                        url,
+                        isHorizontal,
+                      }: { url: string | undefined; isHorizontal: boolean },
+                      index: number
+                    ) => (
+                      <CarouselItem key={index} className="p-4">
+                        <PhotoView src={url as string}>
+                          <Image
+                            src={url as string}
+                            alt={`${update.title} - Image ${index + 1}`}
+                            width={isHorizontal ? 859 : 570}
+                            height={isHorizontal ? 570 : 859}
+                            className="rounded-3xl cursor-pointer"
+                          />
+                        </PhotoView>
+                      </CarouselItem>
+                    )
+                  )}
+                </CarouselContent>
+                <CarouselNavigation alwaysShow />
+                <CarouselIndicator />
+              </Carousel>
+            </PhotoProvider>
           </div>
         ) : (
           <p className="text-center text-gray-500">
