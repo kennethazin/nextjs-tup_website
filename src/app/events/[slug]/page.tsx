@@ -37,8 +37,7 @@ async function fetchEvent(slug: string) {
   );
 }
 
-export default function EventPage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
-  const params = React.use(paramsPromise);
+export default function EventPage({ params }: { params: { slug: string } }) {
   const [event, setEvent] = useState<SanityDocument | null>(null);
 
   useEffect(() => {
@@ -164,3 +163,4 @@ export default function EventPage({ params: paramsPromise }: { params: Promise<{
     </main>
   );
 }
+

@@ -38,8 +38,7 @@ async function fetchUpdate(slug: string) {
   );
 }
 
-export default function UpdatePage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
-  const params = React.use(paramsPromise);
+export default function UpdatePage({ params }: { params: { slug: string } }) {
   const [update, setUpdate] = useState<SanityDocument | null>(null);
 
   useEffect(() => {
