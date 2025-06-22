@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import React from "react";
 import { PortableText, type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -15,8 +11,7 @@ import {
   CarouselIndicator,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import "react-photo-view/dist/react-photo-view.css";
+
 
 const EVENT_QUERY = `*[_type == "event" && slug.current == $slug][0]`;
 
@@ -28,25 +23,20 @@ const urlFor = (source: SanityImageSource) =>
 
 const options = { next: { revalidate: 30 } };
 
-// Helper to fetch event data
-async function fetchEvent(slug: string) {
-  return await client.fetch<SanityDocument>(
+export default async function EventPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const event = await client.fetch<SanityDocument>(
     EVENT_QUERY,
-    { slug },
+    await params,
     options
   );
-}
-
-export default function EventPage({ params }: { params: { slug: string } }) {
-  const [event, setEvent] = useState<SanityDocument | null>(null);
-
-  useEffect(() => {
-    fetchEvent(params.slug).then(setEvent);
-  }, [params.slug]);
 
   // Use the same image loading logic as updates, but filter for valid asset._ref
   const eventImages =
-    event?.images
+    event.images
       ?.filter(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (image: any) =>
@@ -66,14 +56,6 @@ export default function EventPage({ params }: { params: { slug: string } }) {
         };
       }) || [];
 
-  if (!event) {
-    return (
-      <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4">
-        <p>Loading...</p>
-      </main>
-    );
-  }
-
   return (
     <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4 ">
       <Link href="/events" className="hover:underline">
@@ -85,35 +67,31 @@ export default function EventPage({ params }: { params: { slug: string } }) {
       <div className="flex justify-center">
         {eventImages.length > 0 ? (
           <div className="relative w-full max-w-md mb-10">
-            <PhotoProvider>
-              <Carousel>
-                <CarouselContent>
-                  {eventImages.map(
-                    (
-                      {
-                        url,
-                        isHorizontal,
-                      }: { url: string | undefined; isHorizontal: boolean },
-                      index: number
-                    ) => (
-                      <CarouselItem key={index} className="p-4">
-                        <PhotoView src={url as string}>
-                          <Image
-                            src={url as string}
-                            alt={`${event.title} - Image ${index + 1}`}
-                            className="rounded-3xl cursor-pointer"
-                            width={isHorizontal ? 859 : 570}
-                            height={isHorizontal ? 570 : 859}
-                          />
-                        </PhotoView>
-                      </CarouselItem>
-                    )
-                  )}
-                </CarouselContent>
-                <CarouselNavigation alwaysShow />
-                <CarouselIndicator />
-              </Carousel>
-            </PhotoProvider>
+            <Carousel>
+              <CarouselContent>
+                {eventImages.map(
+                  (
+                    {
+                      url,
+                      isHorizontal,
+                    }: { url: string | undefined; isHorizontal: boolean },
+                    index: number
+                  ) => (
+                    <CarouselItem key={index} className="p-4">
+                      <Image
+                        src={url as string}
+                        alt={`${event.title} - Image ${index + 1}`}
+                        className="rounded-3xl"
+                        width={isHorizontal ? 859 : 570}
+                        height={isHorizontal ? 570 : 859}
+                      />
+                    </CarouselItem>
+                  )
+                )}
+              </CarouselContent>
+              <CarouselNavigation alwaysShow />
+              <CarouselIndicator />
+            </Carousel>
           </div>
         ) : (
           <p className="text-center text-gray-500">
