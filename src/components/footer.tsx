@@ -40,7 +40,7 @@ const Footer = () => {
 
       <div className="flex flex-row justify-between items-end">
         <div className="flex flex-col gap-2">
-          <p className="lg:text-6xl metropolitano text-4xl">
+          <p className="lg:text-5xl metropolitano text-3xl">
             The Useless Project
           </p>
           <p className="w-full lg:w-fit metropolitano">

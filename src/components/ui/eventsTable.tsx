@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Calendar } from "lucide-react";
+import { ExternalLink, Calendar, ChevronUp, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 interface Event {
@@ -19,24 +19,97 @@ interface EventsTableProps {
 export default function EventsTable({ events }: EventsTableProps) {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
+  // Sorting state
+  const [sortBy, setSortBy] = useState<"name" | "date" | "type">("date");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  // Sorting handler
+  function handleSort(column: "name" | "date" | "type") {
+    if (sortBy === column) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortBy(column);
+      setSortDir("asc");
+    }
+  }
+
+  // Sort events
+  const sortedEvents = [...events].sort((a, b) => {
+    const valA = a[sortBy];
+    const valB = b[sortBy];
+    if (sortBy === "date") {
+      // Try to parse as date
+      const dateA = new Date(valA);
+      const dateB = new Date(valB);
+      if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        return sortDir === "asc"
+          ? dateA.getTime() - dateB.getTime()
+          : dateB.getTime() - dateA.getTime();
+      }
+    }
+    // Fallback to string comparison
+    if (valA < valB) return sortDir === "asc" ? -1 : 1;
+    if (valA > valB) return sortDir === "asc" ? 1 : -1;
+    return 0;
+  });
+
   return (
     <div className="w-full  mx-auto p-6 ">
       <div className="overflow-hidden">
         {/* Header */}
         <div className="grid grid-cols-12 gap-4 py-4 border-b border-gray-200 mb-1">
-          <div className="col-span-5 md:col-span-4">
-            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+          <div
+            className="col-span-5 md:col-span-4 cursor-pointer select-none flex items-center"
+            onClick={() => handleSort("name")}
+            tabIndex={0}
+            role="button"
+            aria-label="Sort by event name"
+          >
+            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide flex items-center">
               Event Name
+              {sortBy === "name" && (
+                sortDir === "asc" ? (
+                  <ChevronUp className="w-4 h-4 ml-1" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                )
+              )}
             </h3>
           </div>
-          <div className="col-span-3 md:col-span-3">
-            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+          <div
+            className="col-span-3 md:col-span-3 cursor-pointer select-none flex items-center"
+            onClick={() => handleSort("date")}
+            tabIndex={0}
+            role="button"
+            aria-label="Sort by date"
+          >
+            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide flex items-center">
               Date
+              {sortBy === "date" && (
+                sortDir === "asc" ? (
+                  <ChevronUp className="w-4 h-4 ml-1" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                )
+              )}
             </h3>
           </div>
-          <div className="col-span-3 md:col-span-4">
-            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+          <div
+            className="col-span-3 md:col-span-4 cursor-pointer select-none flex items-center"
+            onClick={() => handleSort("type")}
+            tabIndex={0}
+            role="button"
+            aria-label="Sort by type"
+          >
+            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide flex items-center">
               Type
+              {sortBy === "type" && (
+                sortDir === "asc" ? (
+                  <ChevronUp className="w-4 h-4 ml-1" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                )
+              )}
             </h3>
           </div>
           <div className="col-span-1">{/* Empty space for arrow */}</div>
@@ -44,7 +117,7 @@ export default function EventsTable({ events }: EventsTableProps) {
 
         {/* Event Rows */}
         <div className="space-y-0">
-          {events.map((event, index) => {
+          {sortedEvents.map((event, index) => {
             const rowContent = (
               <div
                 className={`

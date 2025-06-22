@@ -1,7 +1,11 @@
+'use client'
 import React from "react";
 import Image from "next/image"; // Added import for Next.js Image
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 import { TextEffect } from "../../components/motion-primitives/text-effect";
+import Lottie from "lottie-react";
+import Bee from "./bee.json";
+
 
 const Main = () => {
   const features = [
@@ -144,6 +148,14 @@ const Main = () => {
   return (
     <main className="m-auto mb-20">
       <section className="h-screen flex flex-col items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <Lottie
+            animationData={Bee}
+            loop={false}
+            autoplay={true}
+            className="lg:w-full lg:h-full object-cover w-full h-1/2 mt-16 lg:mt-0"
+          />
+        </div>
         <div className="text-5xl mb-40 leading-12 md:text-8xl md:leading-20 lg:text-9xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium ">
           <TextEffect
             per="word"

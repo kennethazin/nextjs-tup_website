@@ -17,7 +17,7 @@ export interface Gallery4Item {
   title: string;
   description: string;
   href: string;
-  image: string;
+  image: string[] | string; // Changed from string to string[] | string to support both formats
   date?: Date; // Make date optional
   type: string;
 }
@@ -55,6 +55,14 @@ const Gallery4 = ({
       carouselApi.off("select", updateSelection);
     };
   }, [carouselApi]);
+
+  // Helper function to get the image source
+  const getImageSource = (image: string[] | string): string => {
+    if (Array.isArray(image) && image.length > 0) {
+      return image[0]; // Use the first image in the array
+    }
+    return typeof image === "string" ? image : ""; // Fallback to empty string if no images
+  };
 
   return (
     <section className="w-full">
@@ -116,7 +124,7 @@ const Gallery4 = ({
                     }`}
                   >
                     <Image
-                      src={item.image}
+                      src={getImageSource(item.image)}
                       alt={item.title}
                       fill
                       className={`object-cover object-center transition-transform duration-300 hover:opacity-80  ${
@@ -127,8 +135,8 @@ const Gallery4 = ({
                     />
                     {galleryType === "event" && (
                       <>
-                        {item.image?.trim() && (
-                          <div className="absolute inset-0 bg-black/40" />
+                        {getImageSource(item.image)?.trim() && (
+                          <div className="absolute inset-0 bg-black/10" />
                         )}
                         <div className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0),hsl(var(--primary)/0.4),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" />
                         <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-primary-foreground md:p-8">

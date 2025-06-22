@@ -10,13 +10,13 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 const EVENTS_QUERY = `*[
   _type == "event"
   && defined(slug.current)
-]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, image_1, eventType, }`;
+]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, images, eventType, secondary}`;
 
 const PAST_EVENTS_QUERY = `*[
   _type == "event"
   && defined(slug.current)
   && eventDate < now()
-]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, image_1, eventType, }`;
+]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, images, eventType, secondary}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -48,14 +48,15 @@ export default async function IndexPage() {
     items: events.map((event) => ({
       id: event._id,
       title: event.title,
-      description: event.secondary || "", // Use event.secondary for description
+      description: event.secondary || "",
       href: `/events/${event.slug.current}`,
-      image: event.image_1
-        ? urlFor(event.image_1)
-        : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23F38BBB'/%3E%3C/svg%3E", // Fallback background
-      width: 800, // Specify width
-      height: 600, // Specify height
-      date: event.eventDate ? new Date(event.eventDate) : undefined, // Parse date
+      image: event.images && Array.isArray(event.images) && event.images.length > 0
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ? event.images.map((img: any) => urlFor(img))
+        : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
+      width: 800,
+      height: 600,
+      date: event.eventDate ? new Date(event.eventDate) : undefined,
       type: event.eventType,
     })),
   };
@@ -65,14 +66,15 @@ export default async function IndexPage() {
     items: pastEvents.map((event) => ({
       id: event._id,
       title: event.title,
-      description: event.secondary || "", // Use event.secondary for description
+      description: event.secondary || "",
       href: `/events/${event.slug.current}`,
-      image: event.image_1
-        ? urlFor(event.image_1)
-        : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23F38BBB'/%3E%3C/svg%3E", // Fallback background
-      width: 800, // Specify width
-      height: 600, // Specify height
-      date: event.eventDate ? new Date(event.eventDate) : undefined, // Parse date
+      image: event.images && Array.isArray(event.images) && event.images.length > 0
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ? event.images.map((img: any) => urlFor(img))
+        : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
+      width: 800,
+      height: 600,
+      date: event.eventDate ? new Date(event.eventDate) : undefined,
       type: event.eventType,
     })),
   };

@@ -32,14 +32,28 @@ export default async function EventPage({
     await params,
     options
   );
-  const eventImages = ["image_1", "image_2", "image_3"] // Add more keys if needed
-    .map((key) => event[key])
-    .filter(Boolean)
-    .map((image) => ({
-      url: urlFor(image)?.url(),
-      isHorizontal: image?.asset?._ref?.includes("-h"),
-    }))
-    .filter((img) => !!img.url); // Filter out images with undefined url
+
+  // Use the same image loading logic as updates, but filter for valid asset._ref
+  const eventImages =
+    event.images
+      ?.filter(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (image: any) =>
+          image &&
+          typeof image === "object" &&
+          "asset" in image &&
+          image.asset &&
+          typeof image.asset === "object" &&
+          "_ref" in image.asset &&
+          typeof image.asset._ref === "string"
+      )
+      .map((image: { asset: { _ref: string } }) => {
+        // At this point, asset._ref is guaranteed
+        return {
+          url: urlFor(image)?.url(),
+          isHorizontal: image.asset._ref.includes("-h"),
+        };
+      }) || [];
 
   return (
     <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4 ">
@@ -54,17 +68,25 @@ export default async function EventPage({
           <div className="relative w-full max-w-md mb-10">
             <Carousel>
               <CarouselContent>
-                {eventImages.map(({ url, isHorizontal }, index) => (
-                  <CarouselItem key={index} className="p-4">
-                    <Image
-                      src={url as string}
-                      alt={`${event.title} - Image ${index + 1}`}
-                      className="rounded-3xl"
-                      width={isHorizontal ? 859 : 570}
-                      height={isHorizontal ? 570 : 859}
-                    />
-                  </CarouselItem>
-                ))}
+                {eventImages.map(
+                  (
+                    {
+                      url,
+                      isHorizontal,
+                    }: { url: string | undefined; isHorizontal: boolean },
+                    index: number
+                  ) => (
+                    <CarouselItem key={index} className="p-4">
+                      <Image
+                        src={url as string}
+                        alt={`${event.title} - Image ${index + 1}`}
+                        className="rounded-3xl"
+                        width={isHorizontal ? 859 : 570}
+                        height={isHorizontal ? 570 : 859}
+                      />
+                    </CarouselItem>
+                  )
+                )}
               </CarouselContent>
               <CarouselNavigation alwaysShow />
               <CarouselIndicator />
