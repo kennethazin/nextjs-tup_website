@@ -4,7 +4,7 @@ import Image from "next/image";
 function Partners() {
   return (
     <>
-      <div className="flex justify-center mb-10 text-4xl metropolitano font-medium">
+      <div className="flex justify-center mb-10 text-4xl metropolitano font-medium mt-30">
         We&apos;ve worked with
       </div>
       <InfiniteSlider

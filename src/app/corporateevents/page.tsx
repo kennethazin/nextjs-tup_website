@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Hero from "@/components/hero";
+import Partners from "@/components/partners";
+
 export default function CorporateEvents() {
   return (
     <>
@@ -109,6 +111,45 @@ export default function CorporateEvents() {
           </div>
         </div>
       </main>
+
+      {/* Three images side by side, full width, rounded, adaptive layout */}
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 mb-12 w-full ">
+        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0">
+          <div className="relative w-full h-64 md:h-80 lg:h-96">
+            <Image
+              src="https://images.pexels.com/photos/8171189/pexels-photo-8171189.jpeg"
+              alt="Corporate Event"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        </div>
+        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0">
+          <div className="relative w-full h-64 md:h-80 lg:h-96">
+            <Image
+              src="https://images.pexels.com/photos/7688168/pexels-photo-7688168.jpeg"
+              alt="Corporate Event"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        </div>
+        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border">
+          <div className="relative w-full h-64 md:h-80 lg:h-96">
+            <Image
+              src="https://images.pexels.com/photos/7698820/pexels-photo-7698820.jpeg"
+              alt="Corporate Event"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        </div>
+      </div>
+
+      <Partners />
     </>
   );
 }

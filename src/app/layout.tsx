@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header1 } from "@/components/header";
 import Footer from "@/components/footer";
-import Partners from "@/components/partners";
 import LenisProvider from "@/lib/LenisProvider";
 
 const geistSans = Geist({
@@ -35,8 +34,7 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 bg-[#FCFAF8]">
           <Header1 />
         </header>
-        <main className="flex-grow px-4 py-10 mb-50">{children}</main>
-        <Partners />
+        <main className="flex-grow px-4 py-10 mb-0">{children}</main>
         <Footer />
       </body>
     </html>

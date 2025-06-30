@@ -48,7 +48,9 @@ export default async function UpdatesPage() {
   return (
     <main className="mx-auto min-h-screen max-w-8xl">
       <div className="flex justify-center items-center flex-col mt-40 mb-40 gap-5">
-        <Hero title="Updates" subtitle="See what's new" />
+        <div className="w-full max-w-2xl">
+          <Hero title="What We've Been Up To at Useless HQ" subtitle="" />
+        </div>
       </div>
       <Gallery4 galleryType={"update"} {...updatesSection} />
     </main>

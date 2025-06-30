@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#308021] rounded-t-4xl h-fit p-6 text-[#FFF9EB] flex flex-col justify-between overflow-hidden metropolitano space-y-10">
+    <div className="bg-[#308021] rounded-t-4xl h-fit p-6 text-[#FFF9EB] flex flex-col justify-between overflow-hidden metropolitano space-y-10 mt-10">
       <div className="flex justify-between flex-wrap ">
         <div className="flex flex-row gap-x-3 flex-wrap">
           <Link href="/about" className="hover:underline">

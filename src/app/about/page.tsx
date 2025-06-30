@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import Image from "next/image";
+import Partners from "@/components/partners";
 
 export default function About() {
   return (
@@ -139,6 +140,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Partners />
     </>
   );
 }

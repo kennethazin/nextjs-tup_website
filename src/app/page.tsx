@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Image from "next/image"; // Added import for Next.js Image
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
@@ -6,13 +6,12 @@ import { TextEffect } from "../../components/motion-primitives/text-effect";
 import Lottie from "lottie-react";
 import Bee from "./bee.json";
 
-
 const Main = () => {
   const features = [
     {
       id: "1",
-      href: "/",
-      cta: "",
+      href: "/markets",
+      cta: "Flea markets ",
       background: (
         <Image
           src="/5.jpg"
@@ -26,8 +25,8 @@ const Main = () => {
     },
     {
       id: "2",
-      href: "/corporateevents",
-      cta: "Join our workshops",
+      href: "/events",
+      cta: "Upcoming workshops",
       background: (
         <Image
           src="https://images.pexels.com/photos/17485817/pexels-photo-17485817/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-ways-in-which-ai-can-solve-important-problems-it-was-created-by-vincent-schwenk-as-part-of-the-visualis.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -56,6 +55,7 @@ const Main = () => {
     },
     {
       id: "4",
+      href: "/impact",
       background: (
         <Image
           src="https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -65,7 +65,7 @@ const Main = () => {
         />
       ),
       className:
-        "lg:col-start-3 text-white lg:col-end-3 lg:row-start-1 lg:row-end-2 transition-none",
+        "lg:col-start-3 text-white lg:col-end-3 lg:row-start-1 lg:row-end-1 transition-none",
     },
     {
       id: "5",
@@ -85,8 +85,8 @@ const Main = () => {
     // New cards start here
     {
       id: "6",
-      href: "/",
-      cta: "",
+      href: "/corporateevents",
+      cta: "Get us into your workplace",
       background: (
         <Image
           src="/2.jpg"
@@ -100,7 +100,7 @@ const Main = () => {
     },
     {
       id: "7",
-      href: "/events",
+      href: "/events#past-events",
       cta: "See our past events",
       background: (
         <Image
@@ -116,7 +116,7 @@ const Main = () => {
     {
       id: "8",
       href: "/",
-      cta: "",
+
       background: (
         <Image
           src="/4.jpg"
@@ -130,8 +130,8 @@ const Main = () => {
     },
     {
       id: "9",
-      href: "/",
-      cta: "",
+      href: "/updates",
+      cta: "Latest thoughts, news and updates",
       background: (
         <Image
           src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -153,15 +153,15 @@ const Main = () => {
             animationData={Bee}
             loop={false}
             autoplay={true}
-            className="lg:w-full lg:h-full object-cover w-full h-1/2 mt-16 lg:mt-0"
+            className="lg:w-full lg:h-full object-cover w-full h-1/2 mt-16 lg:mt-0 overflow-visible "
           />
         </div>
-        <div className="text-5xl mb-40 leading-12 md:text-8xl md:leading-20 lg:text-9xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium ">
+        <div className="text-5xl mb-40 leading-12 md:text-6xl md:leading-20 lg:text-7xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium">
           <TextEffect
             per="word"
             as="h1"
             preset="slide"
-            className="tracking-tighter leading-13 md:leading-25 lg:leading-30"
+            className="tracking-tighter leading-13 md:leading-15 lg:leading-20 "
           >
             A Space to Reconnect—with People, Planet & Creativity
           </TextEffect>

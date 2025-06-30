@@ -81,16 +81,16 @@ export default async function IndexPage() {
 
   return (
     <main className="mx-auto min-h-screen max-w-8xl metropolitano">
-      <div className="flex justify-center items-center flex-col mt-40 mb-40">
+      <div className="flex justify-center items-center flex-col mt-40">
         <Hero title="Events" subtitle="Find out what's coming next" />
       </div>
       <Gallery4 galleryType="event" {...futureEvents} />
-      <div className="mt-20">
+      <div className="mt-20" id="past-events">
         <Gallery4 {...pastEventsSection} galleryType="event" />
       </div>
 
       <div className="mt-20">
-        <h2 className="text-2xl mb-4">All Events</h2>
+        <h2 className="text-2xl mb-4" >All Events</h2>
         <EventsTable
           events={events.map((event) => ({
             id: event._id,
