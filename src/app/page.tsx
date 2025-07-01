@@ -24,21 +24,6 @@ const Main = () => {
         "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3 text-white",
     },
     {
-      id: "2",
-      href: "/events",
-      cta: "Upcoming workshops",
-      background: (
-        <Image
-          src="https://images.pexels.com/photos/17485817/pexels-photo-17485817/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-ways-in-which-ai-can-solve-important-problems-it-was-created-by-vincent-schwenk-as-part-of-the-visualis.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          fill
-          className="absolute object-cover transition-all"
-          alt=""
-        />
-      ),
-      className:
-        "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3 text-white",
-    },
-    {
       id: "3",
       href: "/events",
       cta: "View events",
@@ -51,11 +36,12 @@ const Main = () => {
         />
       ),
       className:
-        "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4 text-white",
+        "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4 text-white",
     },
     {
       id: "4",
       href: "/impact",
+      cta: "Our impact",
       background: (
         <Image
           src="https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -65,7 +51,7 @@ const Main = () => {
         />
       ),
       className:
-        "lg:col-start-3 text-white lg:col-end-3 lg:row-start-1 lg:row-end-1 transition-none",
+        "lg:col-start-3 lg:col-end-4 lg:row-start-4 lg:row-end-5 text-white",
     },
     {
       id: "5",
@@ -80,7 +66,7 @@ const Main = () => {
         />
       ),
       className:
-        "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4 text-white",
+        "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-4 text-white",
     },
     // New cards start here
     {
@@ -96,7 +82,7 @@ const Main = () => {
         />
       ),
       className:
-        "lg:col-start-2 lg:col-end-4 lg:row-start-4 lg:row-end-5 text-white",
+        "lg:col-start-2 lg:col-end-3 lg:row-start-4 lg:row-end-5 text-white",
     },
     {
       id: "7",
@@ -115,8 +101,8 @@ const Main = () => {
     },
     {
       id: "8",
-      href: "/",
-
+      href: "/events",
+      cta: "Upcoming workshops",
       background: (
         <Image
           src="/4.jpg"
@@ -134,7 +120,7 @@ const Main = () => {
       cta: "Latest thoughts, news and updates",
       background: (
         <Image
-          src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="https://images.pexels.com/photos/6712383/pexels-photo-6712383.jpeg"
           fill
           className="absolute object-cover transition-all"
           alt=""

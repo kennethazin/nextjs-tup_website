@@ -12,11 +12,6 @@ const EVENTS_QUERY = `*[
   && defined(slug.current)
 ]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, images, eventType, secondary}`;
 
-const PAST_EVENTS_QUERY = `*[
-  _type == "event"
-  && defined(slug.current)
-  && eventDate < now()
-]|order(eventDate desc)[0...12]{_id, title, slug, eventDate, images, eventType, secondary}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -37,11 +32,7 @@ export default async function IndexPage() {
     options
   );
 
-  const pastEvents = await client.fetch<SanityDocument[]>(
-    PAST_EVENTS_QUERY,
-    {},
-    options
-  );
+
 
   // Get current date (UTC, ignoring time)
   const now = new Date();
