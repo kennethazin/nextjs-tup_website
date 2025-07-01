@@ -78,7 +78,7 @@ function Header1() {
         ref={headerRef}
       >
         <div className="flex  ">
-          <Link className="font-semibold pl-3 leading-3.5" href="/">
+          <Link className="font-semibold pl-3 leading-3.5 cursor-pointer" href="/">
             <Image
               src="/tup_logo.png"
               alt="The Useless Project logo"
@@ -95,14 +95,16 @@ function Header1() {
                   {item.href ? (
                     <>
                       <Link href={item.href} legacyBehavior passHref>
-                        <NavigationMenuLink>
-                          <Button variant="ghost">{item.title}</Button>
+                        <NavigationMenuLink className="cursor-pointer">
+                          <Button variant="ghost" className="cursor-pointer">
+                            {item.title}
+                          </Button>
                         </NavigationMenuLink>
                       </Link>
                     </>
                   ) : (
                     <>
-                      <NavigationMenuTrigger className="font-medium text-sm metropolitano">
+                      <NavigationMenuTrigger className="font-medium text-sm metropolitano cursor-pointer">
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="!w-[450px] p-4 metropolitano">
@@ -121,7 +123,7 @@ function Header1() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <Button size="sm" className="mt-10 gap-2">
+                              <Button size="sm" className="mt-10 gap-2 cursor-pointer">
                                 Join the community{" "}
                                 <InstagramIcon size={20} strokeWidth={1} />
                               </Button>
@@ -132,7 +134,7 @@ function Header1() {
                               <NavigationMenuLink
                                 href={subItem.href}
                                 key={subItem.title}
-                                className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
+                                className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded cursor-pointer"
                               >
                                 <span>{subItem.title}</span>
                                 <MoveRight className="w-4 h-4 text-muted-foreground" />
@@ -149,8 +151,8 @@ function Header1() {
           </NavigationMenu>
         </div>
 
-        <a className="flex justify-end w-full gap-4" href="/contact">
-          <Button variant="ghost" className="hidden md:inline">
+        <a className="flex justify-end w-full gap-4 cursor-pointer" href="/contact">
+          <Button variant="ghost" className="hidden md:inline cursor-pointer">
             Contact
           </Button>
         </a>
@@ -167,7 +169,7 @@ function Header1() {
                       {item.href ? (
                         <Link
                           href={item.href}
-                          className="flex justify-between items-center"
+                          className="flex justify-between items-center cursor-pointer"
                           onClick={() => setOpen(false)}
                         >
                           <span className="text-lg metropolitano">
@@ -183,7 +185,7 @@ function Header1() {
                           <Link
                             key={subItem.title}
                             href={subItem.href}
-                            className="flex justify-between items-center"
+                            className="flex justify-between items-center cursor-pointer"
                             onClick={() => setOpen(false)}
                           >
                             <span className="text-muted-foreground">

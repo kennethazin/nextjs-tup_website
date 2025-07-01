@@ -28,6 +28,21 @@ export default async function UpdatesPage() {
     options
   );
 
+  if (!updates || updates.length === 0) {
+    return (
+      <main className="mx-auto min-h-screen max-w-8xl">
+        <div className="flex justify-center items-center flex-col mt-40 mb-40 gap-5">
+          <div className="w-full max-w-2xl">
+            <Hero title="What We've Been Up To at Useless HQ" subtitle="" />
+          </div>
+          <div className="text-center text-2xl text-gray-500 mt-10">
+            No updates from us at the moment!
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   const updatesSection = {
     title: "Latest Updates",
     items: updates.map((update) => ({

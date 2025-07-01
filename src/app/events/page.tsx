@@ -43,40 +43,57 @@ export default async function IndexPage() {
     options
   );
 
+  // Get current date (UTC, ignoring time)
+  const now = new Date();
+  const todayUTC = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+
+  // Split events into future and past based on eventDate
   const futureEvents = {
     title: "Upcoming Events",
-    items: events.map((event) => ({
-      id: event._id,
-      title: event.title,
-      description: event.secondary || "",
-      href: `/events/${event.slug.current}`,
-      image: event.images && Array.isArray(event.images) && event.images.length > 0
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ? event.images.map((img: any) => urlFor(img))
-        : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
-      width: 800,
-      height: 600,
-      date: event.eventDate ? new Date(event.eventDate) : undefined,
-      type: event.eventType,
-    })),
+    items: events
+      .filter((event) => {
+        if (!event.eventDate) return false;
+        const eventDate = new Date(event.eventDate);
+        const eventDateUTC = new Date(Date.UTC(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate()));
+        return eventDateUTC >= todayUTC;
+      })
+      .map((event) => ({
+        id: event._id,
+        title: event.title,
+        description: event.secondary || "",
+        href: `/events/${event.slug.current}`,
+        image: event.images && Array.isArray(event.images) && event.images.length > 0
+          ? event.images.map((img) => urlFor(img))
+          : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
+        width: 800,
+        height: 600,
+        date: event.eventDate ? new Date(event.eventDate) : undefined,
+        type: event.eventType,
+      })),
   };
 
   const pastEventsSection = {
     title: "Past Events",
-    items: pastEvents.map((event) => ({
-      id: event._id,
-      title: event.title,
-      description: event.secondary || "",
-      href: `/events/${event.slug.current}`,
-      image: event.images && Array.isArray(event.images) && event.images.length > 0
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ? event.images.map((img: any) => urlFor(img))
-        : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
-      width: 800,
-      height: 600,
-      date: event.eventDate ? new Date(event.eventDate) : undefined,
-      type: event.eventType,
-    })),
+    items: events
+      .filter((event) => {
+        if (!event.eventDate) return false;
+        const eventDate = new Date(event.eventDate);
+        const eventDateUTC = new Date(Date.UTC(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate()));
+        return eventDateUTC < todayUTC;
+      })
+      .map((event) => ({
+        id: event._id,
+        title: event.title,
+        description: event.secondary || "",
+        href: `/events/${event.slug.current}`,
+        image: event.images && Array.isArray(event.images) && event.images.length > 0
+          ? event.images.map((img) => urlFor(img))
+          : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
+        width: 800,
+        height: 600,
+        date: event.eventDate ? new Date(event.eventDate) : undefined,
+        type: event.eventType,
+      })),
   };
 
   return (
@@ -84,7 +101,17 @@ export default async function IndexPage() {
       <div className="flex justify-center items-center flex-col mt-40">
         <Hero title="Events" subtitle="Find out what's coming next" />
       </div>
-      <Gallery4 galleryType="event" {...futureEvents} />
+      <div className="mt-20" id="upcoming-events">
+                <Gallery4 {...futureEvents} galleryType="event" />
+
+        {futureEvents.items.length === 0 ? (
+          <div className="text-center text-lg text-muted-foreground py-12">
+            Sorry, we have no upcoming events at the moment!
+          </div>
+        ) : (
+          <Gallery4 galleryType="event" {...futureEvents} />
+        )}
+      </div>
       <div className="mt-20" id="past-events">
         <Gallery4 {...pastEventsSection} galleryType="event" />
       </div>
