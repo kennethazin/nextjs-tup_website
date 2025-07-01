@@ -3,7 +3,7 @@ import Hero from "@/components/hero";
 export default function Contact() {
   return (
     <>
-      <div className="flex justify-center items-center flex-col mt-40 mb-40">
+      <div className="flex justify-center items-center flex-col mt-40 mb-20">
         <Hero
           title="Get in Touch"
           subtitle="Got a question, an idea, or just want to chat? We’d love to hear from
@@ -11,7 +11,7 @@ export default function Contact() {
         />
       </div>
 
-      <div className="flex justify-center items-center flex-col w-full text-center gap-8 ">
+      <div className="flex justify-center items-center flex-col w-full text-center gap-8 mb-20 ">
         <div className="flex flex-col items-center space-y-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
