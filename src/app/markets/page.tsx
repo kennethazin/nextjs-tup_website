@@ -94,10 +94,11 @@ export default function Markets() {
             <SimpleMap />
           </div>
         </div>
-        <div className="bg-[#D9CDB5] border flex flex-row w-full lg:w-1/2 self-start p-14 rounded-4xl text-6xl uppercase mt-12 items-center ">
+        
+        <a href="https://tr.ee/uauSIPQyVD" target="_blank" className="bg-[#D9CDB5] border flex flex-row w-full lg:w-1/2 self-start p-14 rounded-4xl text-6xl uppercase mt-12 items-center hover:bg-[#F38BBB] hover:text-white  transition-all">
           <p>Apply for a stall</p>
           <ArrowUpRightIcon size={150} strokeWidth={0.8} />
-        </div>
+        </a>
       </main>
     </>
   );

@@ -73,6 +73,7 @@ export default function CorporateEvents() {
                 If you’d like to get us into your business or if you have any
                 questions?
               </p>
+              <a href="/contact" >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="239"
@@ -91,11 +92,12 @@ export default function CorporateEvents() {
                   textAnchor="middle"
                   fill="#FFF9EB"
                   fontFamily="inherit"
-                  className="futura"
+                  className="futura hover:underline"
                 >
                   Contact Us
                 </text>
               </svg>
+              </a>
             </div>
             <div className="flex-1 w-full rounded-4xl overflow-hidden border">
               <div className="relative w-full h-64 md:h-80 lg:h-full">
