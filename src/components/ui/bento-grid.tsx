@@ -48,15 +48,16 @@ const BentoCard = ({
 }: BentoCardProps) => {
   const [showButton, setShowButton] = useState(false);
 
-  // Detect mobile with a simple window.matchMedia check
-  const isMobile =
+  // Detect mobile or tablet with a window.matchMedia check
+  const isMobileOrTablet =
     typeof window !== "undefined" &&
     window.matchMedia &&
-    window.matchMedia("(max-width: 768px)").matches;
+    (window.matchMedia("(max-width: 1024px)").matches ||
+      /iPad|Android|Tablet|PlayBook|Silk|Kindle|Nexus 7|Nexus 10|KFAPWI|SM-T|GT-P|SCH-I800|Xoom|P160U|TouchPad|Transformer|Transformer Prime|iPad/i.test(navigator.userAgent));
 
-  // Handler for mobile tap
+  // Handler for mobile/tablet tap
   const handleCardClick = () => {
-    if (isMobile) setShowButton((prev) => !prev);
+    if (isMobileOrTablet) setShowButton((prev) => !prev);
   };
 
   return (
@@ -97,7 +98,7 @@ const BentoCard = ({
       <div
         className={cn(
           "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto z-20",
-          isMobile && showButton && "opacity-100 translate-y-0 pointer-events-auto"
+          isMobileOrTablet && showButton && "opacity-100 translate-y-0 pointer-events-auto"
         )}
       >
         {href && cta && cta.trim() !== "" && (
