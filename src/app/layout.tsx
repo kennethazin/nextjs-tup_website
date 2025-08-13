@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The Useless Project",
-  description: "Sustainability, creativity and love!",
+  description: "A nonprofit advocating for sustainable and circular living solutions. We address urgent global issues including climate change, social justice, and environmental equity through community action and awareness.",
 };
 
 export default function RootLayout({

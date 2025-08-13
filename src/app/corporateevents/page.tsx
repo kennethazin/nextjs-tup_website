@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Hero from "@/components/hero";
 import Partners from "@/components/partners";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Corporate Events & Workshops - The Useless Project",
+  description: "Transform your workplace with our sustainability and creativity workshops. Team building through upcycling, pottery, and environmental awareness programs for corporate social responsibility.",
+  keywords: ["corporate events", "sustainability workshops", "team building", "corporate social responsibility", "CSR", "workplace sustainability", "upcycling workshops", "pottery classes"],
+};
 
 export default function CorporateEvents() {
   return (

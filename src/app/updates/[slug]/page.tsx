@@ -5,6 +5,7 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   Carousel,
   CarouselContent,
@@ -22,6 +23,21 @@ const urlFor = (source: SanityImageSource) =>
     : null;
 
 const options = { next: { revalidate: 30 } };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const update = await client.fetch<SanityDocument>(UPDATE_QUERY, { slug }, options);
+  
+  return {
+    title: update?.title ? `${update.title} - The Useless Project` : "Update - The Useless Project",
+    description: update?.subtitle || "Read the latest news and updates from The Useless Project about our sustainability initiatives, community events, and environmental action.",
+    keywords: ["update", "news", "sustainability", "community", "environmental action"],
+  };
+}
 
 export default async function UpdatePage({ params }: any) {
   const update = await client.fetch<SanityDocument>(

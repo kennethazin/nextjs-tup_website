@@ -3,6 +3,14 @@ import "./styles.css";
 import SimpleMap from "./google-maps";
 import { ArrowUpRightIcon } from "lucide-react";
 import Hero from "@/components/hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Markets - The Useless Project",
+  description: "Discover our sustainable markets across Ireland and the UK. Shop second-hand treasures, support local creatives, and join the circular economy movement at our flea markets and pop-up events.",
+  keywords: ["markets", "flea markets", "second-hand", "thrift", "sustainable shopping", "circular economy", "local creatives", "Ireland", "UK"],
+};
+
 export default function Markets() {
   return (
     <>

@@ -1,6 +1,13 @@
 import React from "react";
 import { client } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - The Useless Project",
+  description: "Read our privacy policy to understand how The Useless Project collects, uses, and protects your personal information when you interact with our website and services.",
+  keywords: ["privacy policy", "data protection", "personal information", "website privacy"],
+};
 
 async function getPrivacy() {
   const query = `*[_type == "privacy"][0]{

@@ -1,4 +1,11 @@
 import Hero from "@/components/hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us - The Useless Project",
+  description: "Get in touch with The Useless Project. Have questions about our sustainability workshops, flea markets, or community events? We'd love to hear from you!",
+  keywords: ["contact", "get in touch", "sustainability workshops", "community events", "environmental activism"],
+};
 
 export default function Contact() {
   return (

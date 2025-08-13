@@ -4,6 +4,7 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   Carousel,
   CarouselContent,
@@ -22,6 +23,21 @@ const urlFor = (source: SanityImageSource) =>
     : null;
 
 const options = { next: { revalidate: 30 } };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const event = await client.fetch<SanityDocument>(EVENT_QUERY, { slug }, options);
+  
+  return {
+    title: event?.title ? `${event.title} - The Useless Project` : "Event - The Useless Project",
+    description: event?.subtitle || "Join us for this sustainable living event with The Useless Project. Community-focused activities promoting circular living and environmental action.",
+    keywords: ["event", "sustainability", "community event", "circular living", event?.eventType].filter(Boolean),
+  };
+}
 
 export default async function EventPage({
   params,

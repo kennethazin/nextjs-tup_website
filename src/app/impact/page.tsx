@@ -1,6 +1,14 @@
 import Hero from "@/components/hero";
 import ImpactInfographic from "@/components/ui/impact-infographic";
 import { TextGradientScroll } from "@/components/ui/text-gradient-scroll";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Impact - The Useless Project",
+  description: "See the positive environmental and social impact we've made through our sustainability initiatives, community events, and circular living programs. Real change through collective action.",
+  keywords: ["impact", "environmental impact", "social impact", "sustainability results", "community change", "circular living outcomes"],
+};
+
 export default function Impact() {
   return (
     <>

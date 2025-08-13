@@ -1,6 +1,13 @@
 import React from "react";
 import { client } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service - The Useless Project",
+  description: "Read our terms of service to understand the rules and guidelines for using The Useless Project website and participating in our events and services.",
+  keywords: ["terms of service", "terms and conditions", "website terms", "user agreement"],
+};
 
 async function getTerms() {
   const query = `*[_type == "terms"][0]{

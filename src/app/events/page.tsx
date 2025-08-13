@@ -1,11 +1,18 @@
 import { type SanityDocument } from "next-sanity";
 import { Gallery4 } from "@/components/ui/gallery4";
 import imageUrlBuilder from "@sanity/image-url";
+import type { Metadata } from "next";
 
 import { client } from "@/sanity/client";
 import EventsTable from "@/components/ui/eventsTable";
 import Hero from "@/components/hero";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+export const metadata: Metadata = {
+  title: "Events - The Useless Project",
+  description: "Join our sustainable living events! From flea markets and clothing swaps to creative workshops and community gatherings. Discover upcoming events focused on circular living and environmental action.",
+  keywords: ["events", "flea markets", "clothing swaps", "workshops", "sustainability events", "community gatherings", "circular living"],
+};
 
 const EVENTS_QUERY = `*[
   _type == "event"

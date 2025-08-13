@@ -3,6 +3,13 @@ import { Gallery4 } from "@/components/ui/gallery4";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 import Hero from "@/components/hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Updates & News - The Useless Project",
+  description: "Stay updated with the latest news from The Useless Project. Read about our recent events, sustainability initiatives, community stories, and environmental action updates.",
+  keywords: ["updates", "news", "blog", "sustainability news", "community stories", "environmental updates", "event highlights"],
+};
 
 const UPDATES_QUERY = `*[
   _type == "Update"

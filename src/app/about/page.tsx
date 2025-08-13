@@ -1,6 +1,13 @@
 import Hero from "@/components/hero";
 import Image from "next/image";
 import Partners from "@/components/partners";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us - The Useless Project",
+  description: "Meet Taz Keller, founder of The Useless Project. Learn about our journey from podcasting to sustainability, and how we're building community through creativity, circular living, and environmental action.",
+  keywords: ["about us", "Taz Keller", "founder", "sustainability", "circular living", "environmental activism", "community building"],
+};
 
 export default function About() {
   return (
