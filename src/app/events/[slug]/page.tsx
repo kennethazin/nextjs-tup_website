@@ -73,11 +73,11 @@ export default async function EventPage({
       }) || [];
 
   return (
-    <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4 ">
+    <main className="mx-auto min-h-screen max-w-8xl metropolitano container">
       <Link href="/events" className="hover:underline">
         ← Back to events
       </Link>
-      <h1 className="text-5xl text-center lg:text-8xl lg:text-left font-bold mb-8">
+      <h1 className="text-3xl text-center md:text-4xl lg:text-6xl lg:text-center font-bold mb-8 mt-10">
         {event.title}
       </h1>
       <div className="flex justify-center">

@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, titleBreakAfter }) => {
     <>
       <div className="text-center  ">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl tracking-tighter ">
-          {titleContent}
+          {titleContent} 
         </h1>
         {subtitle && (
           <h2 className="text-1xl lg:text-2xl text-[#6b6f6a] mt-2">{subtitle}</h2>

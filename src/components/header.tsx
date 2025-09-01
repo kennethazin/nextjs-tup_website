@@ -72,7 +72,7 @@ function Header1() {
   }, [isOpen]);
 
   return (
-    <header className="w-full z-40 top-0 left-0 bg-background metropolitano">
+    <header className="w-full z-40 top-0 left-0  metropolitano ">
       <div
         className="container metropolitano relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center"
         ref={headerRef}

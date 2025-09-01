@@ -67,7 +67,7 @@ export default async function UpdatePage({ params }: any) {
       }) || [];
 
   return (
-    <main className=" min-h-screen flex flex-col gap-4 container">
+    <main className="mx-auto min-h-screen max-w-8xl metropolitano container">
       <Link
         href="/updates"
         className="hover:underline metropolitano font-medium"
