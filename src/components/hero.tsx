@@ -7,7 +7,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle, titleBreakAfter }) => {
-  let titleContent = title;
+  let titleContent: string | React.ReactNode = title;
   if (titleBreakAfter && title.includes(titleBreakAfter)) {
     const idx = title.indexOf(titleBreakAfter) + titleBreakAfter.length;
     titleContent = (
