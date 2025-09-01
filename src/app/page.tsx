@@ -132,28 +132,28 @@ const Main = () => {
   ];
 
   return (
-    <main className="m-auto mb-20">
-      <section className="h-screen flex flex-col items-center justify-center">
-        <div className="absolute inset-0 z-0">
+    <main className="">
+      <section className="flex items-center justify-center">
+        <div className="absolute  z-0 mb-10">
           <Lottie
             animationData={Bee}
             loop={false}
             autoplay={true}
-            className="lg:w-full lg:h-full object-cover w-full h-1/2 mt-16 lg:mt-0 overflow-visible "
+            className="lg:w-full lg:h-full object-cover w-full h-full  overflow-visible pl-30 pt-20 "
           />
         </div>
-        <div className="text-5xl mb-40 leading-12 md:text-6xl md:leading-20 lg:text-7xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium">
+        <div className="text-3xl mb-20 lg:mb-40 mt-30  md:text-6xl md:leading-20 lg:text-7xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium">
           <TextEffect
             per="word"
             as="h1"
             preset="slide"
-            className="tracking-tighter leading-13 md:leading-15 lg:leading-20 "
+            className="tracking-tighter leading-10 md:leading-15 lg:leading-20 lg:w-190 w-80 md:w-120  "
           >
-            A Space to Reconnect—with People, Planet & Creativity
+            A Space to Reconnect with People, Planet and Creativity
           </TextEffect>
         </div>
       </section>
-      <section className="min-h-screen w-full flex items-center justify-center py-0">
+      <section className="w-full flex items-center justify-center py-0 ">
         <div className="max-w-7xl w-full px-4">
           <BentoGrid className="lg:grid-rows-2 relative h-full">
             {features.map((feature) => (

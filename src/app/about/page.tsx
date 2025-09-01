@@ -12,10 +12,9 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <div className="flex justify-center items-center flex-col mt-40 mb-40 w-full">
+      <div className="flex justify-center items-center flex-col mt-10 mb-20 w-full">
         <Hero
           title="About us"
-          subtitle="Hi👋 I'm Taz–a lover of colour, creativity & connection"
         />
       </div>
       {/* Bento layout */}

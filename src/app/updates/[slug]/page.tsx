@@ -67,19 +67,19 @@ export default async function UpdatePage({ params }: any) {
       }) || [];
 
   return (
-    <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4">
+    <main className=" min-h-screen flex flex-col gap-4 container">
       <Link
         href="/updates"
         className="hover:underline metropolitano font-medium"
       >
         ← Back to updates
       </Link>
-      <h1 className="text-5xl text-center lg:text-8xl lg:text-left font-bold mb-8">
+      <h1 className="text-3xl text-center md:text-4xl lg:text-6xl lg:text-center font-bold mb-8 mt-10">
         {update.title}
       </h1>
       <div className="flex justify-center">
         {updateImages.length > 0 ? (
-          <div className="relative w-full max-w-md mb-10">
+          <div className="relative w-3/4 max-w-md mb-10">
             <Carousel>
               <CarouselContent>
                 {updateImages.map(

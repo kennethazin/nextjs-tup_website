@@ -37,8 +37,8 @@ export default async function UpdatesPage() {
 
   if (!updates || updates.length === 0) {
     return (
-      <main className="mx-auto min-h-screen max-w-8xl">
-        <div className="flex justify-center items-center flex-col mt-40 mb-40 gap-5">
+      <main className="mx-auto max-w-8xl">
+        <div className="flex justify-center items-center flex-col mt-10 mb-20 gap-5">
           <div className="w-full max-w-2xl">
             <Hero title="What We've Been Up To at Useless HQ" subtitle="" />
           </div>
@@ -68,8 +68,8 @@ export default async function UpdatesPage() {
   };
 
   return (
-    <main className="mx-auto min-h-screen max-w-8xl">
-      <div className="flex justify-center items-center flex-col mt-40 mb-40 gap-5">
+    <main className="mx-auto max-w-8xl container">
+      <div className="flex justify-center items-center flex-col mt-10 mb-20 gap-5">
         <div className="w-full max-w-2xl">
           <Hero title="What We've Been Up To at Useless HQ" subtitle="" />
         </div>

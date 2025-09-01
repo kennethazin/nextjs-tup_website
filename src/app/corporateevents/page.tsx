@@ -5,22 +5,36 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Corporate Events & Workshops - The Useless Project",
-  description: "Transform your workplace with our sustainability and creativity workshops. Team building through upcycling, pottery, and environmental awareness programs for corporate social responsibility.",
-  keywords: ["corporate events", "sustainability workshops", "team building", "corporate social responsibility", "CSR", "workplace sustainability", "upcycling workshops", "pottery classes"],
+  description:
+    "Transform your workplace with our sustainability and creativity workshops. Team building through upcycling, pottery, and environmental awareness programs for corporate social responsibility.",
+  keywords: [
+    "corporate events",
+    "sustainability workshops",
+    "team building",
+    "corporate social responsibility",
+    "CSR",
+    "workplace sustainability",
+    "upcycling workshops",
+    "pottery classes",
+  ],
 };
 
 export default function CorporateEvents() {
   return (
     <>
-      <main className="mx-auto min-h-screen max-w-8xl">
-        <div className="flex justify-center items-center flex-col mt-40 mb-40 px-4">
+      <main className="mx-auto min-h-screen max-w-8xl container">
+        <div className="flex justify-center items-center flex-col mt-10 mb-20 px-4">
           <Hero
             title="Corporate Events & Workshops"
             subtitle="Bring Sustainability & Creativity to Your Workplace"
+            titleBreakAfter="Corporate Events"
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="bg-[#ECE4D3] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#031100] flex justify-between flex-col p-8 rounded-4xl border" aria-label="Corporate events description">
+          <div
+            className="bg-[#ECE4D3] w-full lg:w-1/2 h-[700px] lg:h-[800px] text-[#031100] flex justify-between flex-col p-8 rounded-4xl border"
+            aria-label="Corporate events description"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="87"
@@ -48,14 +62,16 @@ export default function CorporateEvents() {
                 change.
               </p>
               <p className="mt-10">
-                <span id="brochure-desc">Download our Corporate Workshops Brochure here</span>
+                <span id="brochure-desc">
+                  Download our Corporate Workshops Brochure here
+                </span>
               </p>
-                <a
+              <a
                 href="/tup_brochure.pdf"
                 download
                 aria-label="Download Corporate Workshops Brochure"
                 aria-describedby="brochure-desc"
-                >
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="239"
@@ -66,27 +82,30 @@ export default function CorporateEvents() {
                   focusable="false"
                 >
                   <path
-                  d="M119.5 0.5C152.471 0.5 182.304 3.79975 203.88 9.12598C214.671 11.79 223.37 14.9544 229.357 18.4492C235.38 21.9646 238.5 25.716 238.5 29.5C238.5 33.284 235.38 37.0354 229.357 40.5508C223.37 44.0456 214.671 47.21 203.88 49.874C182.304 55.2003 152.471 58.5 119.5 58.5C86.5292 58.5 56.6959 55.2003 35.1201 49.874C24.3286 47.21 15.6304 44.0456 9.64258 40.5508C3.61956 37.0354 0.5 33.284 0.5 29.5C0.5 25.716 3.61956 21.9646 9.64258 18.4492C15.6304 14.9544 24.3286 11.79 35.1201 9.12598C56.6959 3.79975 86.5292 0.5 119.5 0.5Z"
-                  stroke="#031100"
+                    d="M119.5 0.5C152.471 0.5 182.304 3.79975 203.88 9.12598C214.671 11.79 223.37 14.9544 229.357 18.4492C235.38 21.9646 238.5 25.716 238.5 29.5C238.5 33.284 235.38 37.0354 229.357 40.5508C223.37 44.0456 214.671 47.21 203.88 49.874C182.304 55.2003 152.471 58.5 119.5 58.5C86.5292 58.5 56.6959 55.2003 35.1201 49.874C24.3286 47.21 15.6304 44.0456 9.64258 40.5508C3.61956 37.0354 0.5 33.284 0.5 29.5C0.5 25.716 3.61956 21.9646 9.64258 18.4492C15.6304 14.9544 24.3286 11.79 35.1201 9.12598C56.6959 3.79975 86.5292 0.5 119.5 0.5Z"
+                    stroke="#031100"
                   />
                   <text
-                  x="50%"
-                  y="50%"
-                  dominantBaseline="middle"
-                  textAnchor="middle"
-                  fill="#031100"
-                  fontFamily="inherit"
-                  className="futura font-medium hover:underline"
+                    x="50%"
+                    y="50%"
+                    dominantBaseline="middle"
+                    textAnchor="middle"
+                    fill="#031100"
+                    fontFamily="inherit"
+                    className="futura font-medium hover:underline"
                   >
-                  Download
+                    Download
                   </text>
                 </svg>
-                </a>
+              </a>
             </div>
             <div></div>
           </div>
           <div className="flex flex-col gap-8 w-full lg:w-1/2">
-            <div className="bg-[#F38BBB] flex-1 text-[#FFF9EB] flex justify-center flex-col p-8 rounded-4xl items-center space-y-8 border " aria-label="Contact section">
+            <div
+              className="bg-[#F38BBB] flex-1 text-[#FFF9EB] flex justify-center flex-col p-8 rounded-4xl items-center space-y-8 border "
+              aria-label="Contact section"
+            >
               <p className="text-center">
                 If you’d like to get us into your business or if you have any
                 questions?
@@ -119,7 +138,10 @@ export default function CorporateEvents() {
                 </svg>
               </a>
             </div>
-            <div className="flex-1 w-full rounded-4xl overflow-hidden border" aria-label="Corporate event image">
+            <div
+              className="flex-1 w-full rounded-4xl overflow-hidden border"
+              aria-label="Corporate event image"
+            >
               <div className="relative w-full h-64 md:h-80 lg:h-full">
                 <Image
                   src="/corporate.jpg"
@@ -132,44 +154,55 @@ export default function CorporateEvents() {
             </div>
           </div>
         </div>
-      </main>
 
-      {/* Three images side by side, full width, rounded, adaptive layout */}
-      <div className="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 mb-12 w-full " aria-label="Gallery of corporate events">
-        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0" aria-label="Corporate event image 1">
-          <div className="relative w-full h-64 md:h-80 lg:h-96">
-            <Image
-              src="https://images.pexels.com/photos/8171189/pexels-photo-8171189.jpeg"
-              alt="Corporate Event 1"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
+        <div
+          className="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 mb-12 w-full "
+          aria-label="Gallery of corporate events"
+        >
+          <div
+            className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0"
+            aria-label="Corporate event image 1"
+          >
+            <div className="relative w-full h-64 md:h-80 lg:h-96">
+              <Image
+                src="https://images.pexels.com/photos/8171189/pexels-photo-8171189.jpeg"
+                alt="Corporate Event 1"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          </div>
+          <div
+            className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0"
+            aria-label="Corporate event image 2"
+          >
+            <div className="relative w-full h-64 md:h-80 lg:h-96">
+              <Image
+                src="https://images.pexels.com/photos/7688168/pexels-photo-7688168.jpeg"
+                alt="Corporate Event 2"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          </div>
+          <div
+            className="w-full md:flex-1 rounded-4xl overflow-hidden border"
+            aria-label="Corporate event image 3"
+          >
+            <div className="relative w-full h-64 md:h-80 lg:h-96">
+              <Image
+                src="https://images.pexels.com/photos/7698820/pexels-photo-7698820.jpeg"
+                alt="Corporate Event 3"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
           </div>
         </div>
-        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border mb-4 md:mb-0" aria-label="Corporate event image 2">
-          <div className="relative w-full h-64 md:h-80 lg:h-96">
-            <Image
-              src="https://images.pexels.com/photos/7688168/pexels-photo-7688168.jpeg"
-              alt="Corporate Event 2"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </div>
-        </div>
-        <div className="w-full md:flex-1 rounded-4xl overflow-hidden border" aria-label="Corporate event image 3">
-          <div className="relative w-full h-64 md:h-80 lg:h-96">
-            <Image
-              src="https://images.pexels.com/photos/7698820/pexels-photo-7698820.jpeg"
-              alt="Corporate Event 3"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </div>
-        </div>
-      </div>
+      </main>
 
       <Partners />
     </>

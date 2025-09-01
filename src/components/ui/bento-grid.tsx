@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-import type React from "react";
-
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -46,20 +42,6 @@ const BentoCard = ({
   cta = "",
   ...props
 }: BentoCardProps) => {
-  const [showButton, setShowButton] = useState(false);
-
-  // Detect mobile or tablet with a window.matchMedia check
-  const isMobileOrTablet =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    (window.matchMedia("(max-width: 1024px)").matches ||
-      /iPad|Android|Tablet|PlayBook|Silk|Kindle|Nexus 7|Nexus 10|KFAPWI|SM-T|GT-P|SCH-I800|Xoom|P160U|TouchPad|Transformer|Transformer Prime|iPad/i.test(navigator.userAgent));
-
-  // Handler for mobile/tablet tap
-  const handleCardClick = () => {
-    if (isMobileOrTablet) setShowButton((prev) => !prev);
-  };
-
   return (
     <div
       key={name}
@@ -71,7 +53,6 @@ const BentoCard = ({
         "transform-gpu text-black dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
         className,
       )}
-      onClick={handleCardClick}
       {...props}
     >
       {background && (
@@ -97,8 +78,7 @@ const BentoCard = ({
 
       <div
         className={cn(
-          "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto z-20",
-          isMobileOrTablet && showButton && "opacity-100 translate-y-0 pointer-events-auto"
+          "pointer-events-auto absolute bottom-0 flex w-full translate-y-0 transform-gpu flex-row items-center p-4 opacity-100 transition-all duration-300 z-20",
         )}
       >
         {href && cta && cta.trim() !== "" && (
@@ -119,5 +99,6 @@ const BentoCard = ({
     </div>
   );
 };
+
 
 export { BentoCard, BentoGrid };

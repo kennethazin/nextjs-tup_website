@@ -9,7 +9,7 @@ const ImpactInfographic = () => {
     <>
       <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-10 lg:flex-row  ">
-          <div className="bg-[#308021] w-full lg:w-1/2 h-40 lg:h-40  text-[#FFF9EB] text-7xl p-10 rounded-md  ">
+          <div className="bg-[#308021] w-full lg:w-1/2 h-40 lg:h-40  text-[#FFF9EB] text-6xl p-4 rounded-md  ">
             <div className="flex items-center justify-center h-full lg:justify-between  futura font-medium">
               €<AnimatedNumberInView value={25000} />
               <svg
@@ -42,7 +42,7 @@ const ImpactInfographic = () => {
             </div>
           </div>
           <div className="flex flex-col w-full lg:w-1/2 justify-center ">
-            <h2 className="text-6xl uppercase font-medium">Donations</h2>
+            <h2 className="text-4xl lg:text-6xl uppercase font-medium">Donations</h2>
             <p>
               Raised for charity through clothing sales, events, and
               fundraisers, supporting causes like refugee aid, climate justice,
@@ -51,7 +51,7 @@ const ImpactInfographic = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10 lg:flex-row  ">
-          <div className="bg-[#082E36] w-full lg:w-2/5 h-40 lg:h-40  text-[#FFF9EB] text-7xl p-10 rounded-md  ">
+          <div className="bg-[#082E36] w-full lg:w-2/5 h-40 lg:h-40  text-[#FFF9EB] text-7xl p-4 rounded-md  ">
             <div className="flex items-center justify-center h-full lg:justify-between  futura font-medium">
               <AnimatedNumberInView value={300} />
               <svg
@@ -103,7 +103,7 @@ const ImpactInfographic = () => {
             </div>
           </div>
           <div className="flex flex-col w-full lg:w-1/2 justify-center ">
-            <h2 className="text-6xl uppercase font-medium w-full ">
+            <h2 className="text-4xl lg:text-6xl uppercase font-medium w-full ">
               Education & Outreach
             </h2>
             <p>
@@ -113,7 +113,7 @@ const ImpactInfographic = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10 lg:flex-row  ">
-          <div className="bg-[#F38BBB] w-full lg:w-1/2 h-40 lg:h-40  text-[#FFF9EB] text-7xl p-10 rounded-md  ">
+          <div className="bg-[#F38BBB] w-full lg:w-1/2 h-40 lg:h-40  text-[#FFF9EB] text-7xl p-4 rounded-md  ">
             <div className="flex items-center justify-center h-full lg:justify-between  futura font-medium">
               <AnimatedNumberInView value={60000} />
               <svg
@@ -139,7 +139,7 @@ const ImpactInfographic = () => {
             </div>
           </div>
           <div className="flex flex-col w-full lg:w-1/2 justify-center ">
-            <h2 className="text-6xl uppercase font-medium w-full ">
+            <h2 className="text-4xl lg:text-6xl uppercase font-medium w-full ">
               Community
             </h2>
             <p>

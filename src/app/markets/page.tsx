@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 export default function Markets() {
   return (
     <>
-      <main className="mx-auto min-h-screen max-w-8xl ">
-        <div className="flex justify-center items-center flex-col mt-40 mb-40">
+      <main className="mx-auto min-h-screen max-w-8xl container">
+        <div className="flex justify-center items-center flex-col mt-10 mb-20">
           <Hero
             title="Markets"
             subtitle="Shop second-hand, support local creatives, and join the movement"
@@ -91,6 +91,7 @@ export default function Markets() {
                     textAnchor="middle"
                     fill="#FFF9EB"
                     fontFamily="inherit"
+
                   >
                     Last Sunday of every month
                   </text>
@@ -103,7 +104,7 @@ export default function Markets() {
           </div>
         </div>
         
-        <a href="https://tr.ee/uauSIPQyVD" target="_blank" className="bg-[#D9CDB5] border flex flex-row w-full lg:w-1/2 self-start p-14 rounded-4xl text-6xl uppercase mt-12 items-center hover:bg-[#F38BBB] hover:text-white  transition-all">
+        <a href="https://tr.ee/uauSIPQyVD" target="_blank" className="bg-[#D9CDB5] border flex flex-row w-full lg:w-1/2 self-start p-10 rounded-4xl text-6xl uppercase mt-12 items-center hover:bg-[#F38BBB] hover:text-white  transition-all">
           <p>Apply for a stall</p>
           <ArrowUpRightIcon size={150} strokeWidth={0.8} />
         </a>

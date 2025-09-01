@@ -95,8 +95,8 @@ export default async function IndexPage() {
   };
 
   return (
-    <main className="mx-auto min-h-screen max-w-8xl metropolitano">
-      <div className="flex justify-center items-center flex-col mt-40">
+    <main className="mx-auto min-h-screen max-w-8xl metropolitano container">
+      <div className="flex justify-center items-center flex-col mt-10 mb-20 w-full">
         <Hero title="Events" subtitle="Find out what's coming next" />
       </div>
       <div className="mt-20" id="upcoming-events">
