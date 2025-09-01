@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Impact() {
   return (
     <>
-      <div className="flex justify-center items-center flex-col mt-10 mb-20 container">
+      <div className="flex justify-center items-center flex-col mt-10 mb-20 ">
         <Hero
           title="Impact to Date"
           subtitle="See how we've made a difference"
