@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <div className="flex justify-center items-center flex-col mt-40 mb-20">
+      <div className="flex justify-center items-center flex-col mt-10 mb-20">
         <Hero
           title="Get in Touch"
           subtitle="Got a question, an idea, or just want to chat? We’d love to hear from
