@@ -61,7 +61,9 @@ export default async function IndexPage() {
         description: event.secondary || "",
         href: `/events/${event.slug.current}`,
         image: event.images && Array.isArray(event.images) && event.images.length > 0
-          ? event.images.map((img) => urlFor(img))
+          ? event.images
+              .filter((img) => img && img.asset) // Only images with asset
+              .map((img) => urlFor(img))
           : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
         width: 800,
         height: 600,
@@ -85,7 +87,9 @@ export default async function IndexPage() {
         description: event.secondary || "",
         href: `/events/${event.slug.current}`,
         image: event.images && Array.isArray(event.images) && event.images.length > 0
-          ? event.images.map((img) => urlFor(img))
+          ? event.images
+              .filter((img) => img && img.asset) // Only images with asset
+              .map((img) => urlFor(img))
           : ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E"],
         width: 800,
         height: 600,
