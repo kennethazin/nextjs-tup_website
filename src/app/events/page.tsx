@@ -121,7 +121,7 @@ export default async function IndexPage() {
             id: event._id,
             name: event.title,
             date: event.eventDate
-              ? new Date(event.eventDate).toLocaleDateString()
+              ? new Date(event.eventDate).toLocaleDateString("en-GB")
               : "TBD",
             type: event.eventType,
             url: `/events/${event.slug.current}`,

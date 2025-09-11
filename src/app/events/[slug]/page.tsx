@@ -133,7 +133,7 @@ export default async function EventPage({
           <div className="border px-6 sm:px-10 py-0 rounded-full h-12 border-[#031100] items-center flex">
             <p className="text-sm sm:text-base">
               {event.eventDate
-                ? new Date(event.eventDate).toLocaleDateString()
+                ? new Date(event.eventDate).toLocaleDateString("en-GB")
                 : "Date not available"}
             </p>
           </div>

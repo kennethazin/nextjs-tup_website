@@ -150,7 +150,15 @@ export default function EventsTable({ events }: EventsTableProps) {
                       ${hoveredRow === index ? "text-pink-500" : "text-gray-400"}
                     `}
                     />
-                    <span className="text-sm">{event.date}</span>
+                    <span className="text-sm">
+                      {(() => {
+                        // Try to parse as date and format as day/month/year
+                        const d = new Date(event.date);
+                        return !isNaN(d.getTime())
+                          ? d.toLocaleDateString("en-GB")
+                          : event.date;
+                      })()}
+                    </span>
                   </div>
                 </div>
 
