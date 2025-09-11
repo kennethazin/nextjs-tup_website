@@ -142,7 +142,7 @@ const Main = () => {
             className="lg:w-full lg:h-full object-cover w-full h-full  overflow-visible pl-30 pt-20 "
           />
         </div>
-        <div className="text-3xl mb-20 lg:mb-40 mt-30  md:text-6xl md:leading-20 lg:text-7xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium">
+        <div className="text-3xl mb-20 lg:mb-40 mt-36  md:text-6xl md:leading-20 lg:text-7xl lg:leading-28 text-center lg:max-w-7xl px-4 font-medium ">
           <TextEffect
             per="word"
             as="h1"
@@ -153,7 +153,7 @@ const Main = () => {
           </TextEffect>
         </div>
       </section>
-      <section className="w-full flex items-center justify-center py-0 ">
+      <section className="w-full flex items-center justify-center py-0 mt-32 ">
         <div className="max-w-7xl w-full px-4">
           <BentoGrid className="lg:grid-rows-2 relative h-full">
             {features.map((feature) => (
