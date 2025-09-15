@@ -59,7 +59,7 @@ const Main = () => {
       cta: "Learn our story",
       background: (
         <Image
-          src="/home/IMG_1115.jpg"
+          src="/home/f275fb5e-3529-4e44-9a7b-c7699a755c69.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
