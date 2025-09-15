@@ -20,7 +20,7 @@ function Partners() {
           className="h-[60px] w-auto"
         />
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/500px-Google_2015_logo.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
           alt="Google logo"
           width={60}
           height={120}
