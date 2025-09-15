@@ -10,21 +10,6 @@ const Main = () => {
   const features = [
     {
       id: "1",
-      href: "/markets",
-      cta: "Flea markets ",
-      background: (
-        <Image
-          src="/5.jpg"
-          fill
-          className="absolute object-center object-cover transition-all"
-          alt=""
-        />
-      ),
-      className:
-        "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3 text-white",
-    },
-    {
-      id: "3",
       href: "/events",
       cta: "View events",
       background: (
@@ -37,6 +22,21 @@ const Main = () => {
       ),
       className:
         "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4 text-white",
+    },
+    {
+      id: "3",
+      href: "/markets",
+      cta: "Flea markets ",
+      background: (
+        <Image
+          src="/home/alt/5 2.PNG"
+          fill
+          className="absolute object-center object-cover transition-all"
+          alt=""
+        />
+      ),
+      className:
+        "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3 text-white",
     },
     {
       id: "4",
