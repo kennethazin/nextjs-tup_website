@@ -144,7 +144,7 @@ export default function CorporateEvents() {
             >
               <div className="relative w-full h-64 md:h-80 lg:h-full">
                 <Image
-                  src="/corporate.jpg"
+                  src="/corporate/IMG_4103 (1).png"
                   alt="Corporate Event"
                   fill
                   style={{ objectFit: "cover" }}
@@ -165,7 +165,7 @@ export default function CorporateEvents() {
           >
             <div className="relative w-full h-64 md:h-80 lg:h-96">
               <Image
-                src="https://images.pexels.com/photos/8171189/pexels-photo-8171189.jpeg"
+                src="/corporate/IMG_2486.png"
                 alt="Corporate Event 1"
                 fill
                 style={{ objectFit: "cover" }}
@@ -179,7 +179,7 @@ export default function CorporateEvents() {
           >
             <div className="relative w-full h-64 md:h-80 lg:h-96">
               <Image
-                src="https://images.pexels.com/photos/7688168/pexels-photo-7688168.jpeg"
+                src="/corporate/6daf0187-d92f-4b70-883d-7b6bc21983f8.JPG"
                 alt="Corporate Event 2"
                 fill
                 style={{ objectFit: "cover" }}
@@ -193,7 +193,7 @@ export default function CorporateEvents() {
           >
             <div className="relative w-full h-64 md:h-80 lg:h-96">
               <Image
-                src="https://images.pexels.com/photos/7698820/pexels-photo-7698820.jpeg"
+                src="/corporate/Screenshot 2025-09-12 at 12.17.39.png"
                 alt="Corporate Event 3"
                 fill
                 style={{ objectFit: "cover" }}

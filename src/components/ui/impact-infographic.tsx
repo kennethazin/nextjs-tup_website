@@ -203,7 +203,7 @@ export function AnimatedNumberInView({ value }: { value: number }) {
           duration: 5000,
         }}
         value={displayValue}
-      />
+      />+
     </div>
   );
 }

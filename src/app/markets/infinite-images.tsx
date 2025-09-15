@@ -4,11 +4,18 @@ import Image from "next/image";
 
 export default function InfiniteImages() {
   const images = [
-    { src: "/markets/1.png", alt: "Image 1" },
-    { src: "/markets/2.png", alt: "Image 2" },
-    { src: "/markets/3.png", alt: "Image 3" },
-    { src: "/markets/4.png", alt: "Image 4" },
-    { src: "/markets/5.png", alt: "Image 5" },
+    { src: "/markets/IMG_1814.jpg", alt: "Image 1" },
+    { src: "/markets/IMG_5940.jpg", alt: "Image 2" },
+    { src: "/markets/IMG_5926.jpg", alt: "Image 3" },
+    { src: "/markets/IMG_5944.jpg", alt: "Image 4" },
+    { src: "/markets/IMG_5947.jpg", alt: "Image 5" },
+    { src: "/markets/IMG_5948.jpg", alt: "Image 5" },
+    { src: "/markets/IMG_5952.jpg", alt: "Image 5" },
+    { src: "/markets/IMG_5957.jpg", alt: "Image 5" },
+    { src: "/markets/WhatsApp Image 2023-10-11 at 18.16.24 (2).jpeg", alt: "Image 5" },
+    { src: "/markets/IMG_5923.jpg", alt: "Image 5" },
+    { src: "/markets/WhatsApp Image 2023-10-11 at 18.16.27.jpeg", alt: "Image 5" },
+    { src: "/markets/WhatsApp Image 2023-10-11 at 18.16.23 (1).jpeg", alt: "Image 5" },
   ];
 
   const imageWidth = 300;
@@ -18,7 +25,7 @@ export default function InfiniteImages() {
     <div className="w-full overflow-hidden py-8 bg-[#FCFAF8] mt-10 ">
       <div className="relative">
         {/* Horizontally scrollable container */}
-        <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 justify-center">
+        <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 justify-left">
           {/* First set of images */}
           {images.map((image, index) => (
             <div

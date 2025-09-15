@@ -1,6 +1,5 @@
 import InfiniteImages from "@/app/markets/infinite-images";
 import "./styles.css";
-import SimpleMap from "./google-maps";
 import { ArrowUpRightIcon } from "lucide-react";
 import Hero from "@/components/hero";
 import type { Metadata } from "next";
@@ -99,8 +98,8 @@ export default function Markets() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 h-[700px] lg:h-[800px]">
-            <SimpleMap />
+          <div className="w-full lg:w-1/2 lg:h-[800px] ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.643332027347!2d-6.2741912872028145!3d53.33173917570022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c1f2ec5f47f%3A0xf3429c5f200a6f37!2sSt%20Kevin&#39;s%20Community%20Centre!5e0!3m2!1sen!2sie!4v1757935220387!5m2!1sen!2sie" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-full w-full rounded-4xl border"></iframe>
           </div>
         </div>
         

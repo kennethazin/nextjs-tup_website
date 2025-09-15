@@ -5,17 +5,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us - The Useless Project",
-  description: "Meet Taz Keller, founder of The Useless Project. Learn about our journey from podcasting to sustainability, and how we're building community through creativity, circular living, and environmental action.",
-  keywords: ["about us", "Taz Keller", "founder", "sustainability", "circular living", "environmental activism", "community building"],
+  description:
+    "Meet Taz Keller, founder of The Useless Project. Learn about our journey from podcasting to sustainability, and how we're building community through creativity, circular living, and environmental action.",
+  keywords: [
+    "about us",
+    "Taz Keller",
+    "founder",
+    "sustainability",
+    "circular living",
+    "environmental activism",
+    "community building",
+  ],
 };
 
 export default function About() {
   return (
     <>
       <div className="flex justify-center items-center flex-col mt-10 mb-20 w-full">
-        <Hero
-          title="About us"
-        />
+        <Hero title="About us" />
       </div>
       {/* Bento layout */}
       <div className="flex flex-col items-center justify-center w-full  ">
@@ -49,7 +56,7 @@ export default function About() {
             </div>
             <Image
               fill
-              src="https://images.pexels.com/photos/4503265/pexels-photo-4503265.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="/about/IMG_1115.jpg"
               alt="Hand with plant"
               className="absolute inset-0 w-full h-full object-cover rounded-2xl"
             />
@@ -61,28 +68,28 @@ export default function About() {
 
               <div className="text-base md:text-lg  text-black">
                 At The Useless Project, we believe that the world’s biggest
-                problems—climate change, overconsumption, burnout,
-                disconnection—aren’t just environmental, they’re human. When we
+                problems, climate change, overconsumption, burnout,
+                disconnection, aren’t just environmental, they’re human. When we
                 feel lost, when we don’t know where to start, when everything
-                feels too big to fix—it’s creativity and community that bring us
-                back.
+                feels too big to fix, it’s creativity and community that bring
+                us back.
                 <br />
                 <br />
                 This is ultimately why Geraldine Carton and I founded The
-                Useless Project back in 2018 as a space to reconnect—with
-                people, planet &amp; creativity. Through workshops, flea
-                markets, events, and creative projects, we help people find joy
-                in rethinking waste, making things with their hands, and coming
+                Useless Project back in 2018 as a space to reconnect - with
+                people, planet & creativity. Through workshops, flea markets,
+                events, and creative projects, we help people find joy in
+                rethinking waste, making things with their hands, and coming
                 together to learn, share, and take action.
                 <br />
                 <br />
                 Sustainability isn’t about doom and gloom or doing everything
                 perfectly. It’s about small, meaningful steps that create big,
-                lasting change—for ourselves and the world around us.
+                lasting change, for ourselves and the world around us.
                 <br />
                 <br />
                 So whether you’re here to swap clothes, pick up a new skill, or
-                just reconnect with what really matters—welcome.
+                just reconnect with what really matters, welcome.
               </div>
             </div>
           </div>
@@ -92,25 +99,31 @@ export default function About() {
           {/* Pink Card */}
           <div className="w-full md:w-[70%]  rounded-2xl  p-6 md:p-10 flex flex-col justify-center text-black relative min-h-[220px] md:min-h-0">
             <div className="flex flex-col items-center">
-              <div className="text-base md:text-lg text-black">
-                Abit about me – I started out in podcasting, studying audio
+                <div className="text-base md:text-lg text-black">
+                Abit about me- I started out in podcasting, studying audio
                 documentary in Chicago, but after a few years in the field, I
                 found myself craving community and purpose. At the same time, I
                 was waking up to the urgency of the climate crisis, so I pivoted
-                to running sustainability events with my pal Geraldine—and
+                to running sustainability events with my pal Geraldine and
                 that’s how The Useless Project was born.
                 <br />
                 <br />
-                Flash forward 8 years, I have just moved home from Lisbon where
-                I have been living for the past 2 years diving into the world of
-                ceramics. While the change was refreshing, I’ve realised how
-                much I miss being part of a close-knit community and working
-                towards something bigger.
+                Flash forward 8 years, Geraldine has parted with The Useless Project to become a full time artist (she is UNBELIEVABLE, check her out on Insta{" "}
+                <a
+                  href="https://instagram.com/GeraldineCarton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-blue-600"
+                >
+                  @GeraldineCarton
+                </a>
+                ) and I have just moved home from Lisbon where I have been living for the past 2 years diving into the world of ceramics. While the change was refreshing, I’ve realised how much I miss being part of a close-knit community and working towards something bigger.
+
                 <br />
                 <br />
-                So now, I’m back in the Midlands, with a ceramics studio in my
-                shed and a whole lot of love in my heart.
-              </div>
+                So now, I’m back in the Midlands, with a ceramics studio in a wonderful community space called Cuige and practising what I preach - connecting with people, planet & creativity all over again. 
+
+                </div>
             </div>
           </div>
           {/* Image Card with overlay */}

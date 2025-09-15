@@ -94,13 +94,22 @@ export default async function EventPage({
                     index: number
                   ) => (
                     <CarouselItem key={index} className="p-4">
-                      <Image
-                        src={url as string}
-                        alt={`${event.title} - Image ${index + 1}`}
-                        className="rounded-3xl"
-                        width={isHorizontal ? 859 : 570}
-                        height={isHorizontal ? 570 : 859}
-                      />
+                      <div className="relative">
+                        <Image
+                          src={url as string}
+                          alt={`${event.title} - Image ${index + 1}`}
+                          className="rounded-3xl"
+                          width={isHorizontal ? 859 : 570}
+                          height={isHorizontal ? 570 : 859}
+                        />
+                        {/* Gradient overlay for better text contrast */}
+                        <div
+                          className="pointer-events-none absolute inset-0 rounded-3xl"
+                          style={{
+                            background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.0) 60%)",
+                          }}
+                        />
+                      </div>
                     </CarouselItem>
                   )
                 )}

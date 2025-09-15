@@ -29,7 +29,7 @@ const Main = () => {
       cta: "View events",
       background: (
         <Image
-          src="/1.jpg"
+          src="/home/68AADBEE-5C09-42B1-B7D1-05B090438F85.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
@@ -44,7 +44,7 @@ const Main = () => {
       cta: "Our impact",
       background: (
         <Image
-          src="https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="/home/2c43afef-4cf6-4b8a-a7dd-8148f9bce544.jpg"
           fill
           className="absolute object-cover"
           alt=""
@@ -59,7 +59,7 @@ const Main = () => {
       cta: "Learn our story",
       background: (
         <Image
-          src="/3.jpg"
+          src="/home/IMG_1115.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
@@ -75,7 +75,7 @@ const Main = () => {
       cta: "Get us into your workplace",
       background: (
         <Image
-          src="/2.jpg"
+          src="/home/IMG_8111.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
@@ -90,7 +90,7 @@ const Main = () => {
       cta: "See our past events",
       background: (
         <Image
-          src="/janflea.png"
+          src="/home/IMG_7668.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
@@ -105,7 +105,7 @@ const Main = () => {
       cta: "Upcoming workshops",
       background: (
         <Image
-          src="/4.jpg"
+          src="/home/930822ff-8941-4d21-b506-ebfbb32a6229.jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
@@ -120,7 +120,7 @@ const Main = () => {
       cta: "Latest thoughts, news and updates",
       background: (
         <Image
-          src="https://images.pexels.com/photos/6712383/pexels-photo-6712383.jpeg"
+          src="/home/IMG_5113 (1).jpg"
           fill
           className="absolute object-cover transition-all"
           alt=""
