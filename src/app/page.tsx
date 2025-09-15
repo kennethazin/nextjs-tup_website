@@ -44,7 +44,7 @@ const Main = () => {
       cta: "Our impact",
       background: (
         <Image
-          src="/home/2c43afef-4cf6-4b8a-a7dd-8148f9bce544.jpg"
+        src="/home/2c43afef-4cf6-4b8a-a7dd-8148f9bce544.jpg"
           fill
           className="absolute object-cover"
           alt=""

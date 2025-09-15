@@ -14,42 +14,49 @@ function Partners() {
       >
         <Image
           src="https://cdn.worldvectorlogo.com/logos/airbnb.svg"
-          alt="Apple Music logo"
+          alt="Airbnb"
+          width={60}
+          height={120}
+          className="h-[60px] w-auto"
+        />
+        <Image
+          src="https://en.wikipedia.org/wiki/Google_logo"
+          alt="Google logo"
           width={60}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
           src="https://cdn.worldvectorlogo.com/logos/tiktok-banner-black-3.svg"
-          alt="Chrome logo"
+          alt="Tiktok logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/European_Parliament_logo.svg/1200px-European_Parliament_logo.svg.png"
-          alt="Strava logo"
+          alt="EU Parliament logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/UNHCR.svg/2560px-UNHCR.svg.png"
-          alt="Nintendo logo"
+          alt="UNHCR logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
           src="https://cdn.worldvectorlogo.com/logos/guinness-8.svg"
-          alt="Jquery logo"
+          alt="Guinness logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
           src="https://logos-world.net/wp-content/uploads/2020/09/PayPal-Logo-2022.png"
-          alt="Prada logo"
+          alt="Paypal logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
