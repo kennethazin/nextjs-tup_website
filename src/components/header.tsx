@@ -152,7 +152,7 @@ function Header1() {
         </div>
 
         <a className="flex justify-end w-full gap-4 cursor-pointer" href="/contact">
-          <Button variant="ghost" className="hidden md:inline cursor-pointer">
+          <Button  className="hidden md:inline cursor-pointer" variant="default">
             Contact
           </Button>
         </a>

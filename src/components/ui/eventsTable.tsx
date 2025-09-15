@@ -38,14 +38,22 @@ export default function EventsTable({ events }: EventsTableProps) {
     const valA = a[sortBy];
     const valB = b[sortBy];
     if (sortBy === "date") {
-      // Try to parse as date
-      const dateA = new Date(valA);
-      const dateB = new Date(valB);
-      if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-        return sortDir === "asc"
-          ? dateA.getTime() - dateB.getTime()
-          : dateB.getTime() - dateA.getTime();
+      // Parse as en-GB (dd/mm/yyyy)
+      function parseEnGbDate(str: string) {
+        // Accepts "dd/mm/yyyy" or "TBD"
+        if (!str || str === "TBD") return NaN;
+        const [day, month, year] = str.split("/");
+        if (!day || !month || !year) return NaN;
+        return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
       }
+      const dateA = parseEnGbDate(valA);
+      const dateB = parseEnGbDate(valB);
+      if (!isNaN(dateA) && !isNaN(dateB)) {
+        return sortDir === "asc" ? dateA - dateB : dateB - dateA;
+      }
+      // If one is NaN, put it last
+      if (isNaN(dateA)) return 1;
+      if (isNaN(dateB)) return -1;
     }
     // Fallback to string comparison
     if (valA < valB) return sortDir === "asc" ? -1 : 1;
