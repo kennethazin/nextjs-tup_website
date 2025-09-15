@@ -110,7 +110,7 @@ export default function About() {
                 <br />
                 Flash forward 8 years, Geraldine has parted with The Useless Project to become a full time artist (she is UNBELIEVABLE, check her out on Insta{" "}
                 <a
-                  href="https://instagram.com/GeraldineCarton"
+                  href="https://instagram.com/geraldine_carton"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-blue-600"
