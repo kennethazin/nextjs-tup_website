@@ -66,6 +66,35 @@ export default async function UpdatePage({ params }: any) {
         };
       }) || [];
 
+  // Helper to get cover media
+  let coverMedia = null;
+  if (update.cover?.type === "video" && update.cover?.video?.asset?._ref) {
+    // Get Sanity CDN file URL for video
+    const videoRef = update.cover.video.asset._ref;
+    const videoId = videoRef.replace("file-", "").replace(/-.+$/, "");
+    const videoExt = videoRef.match(/-(\w+)$/)?.[1] || "mp4";
+    const videoUrl = `https://cdn.sanity.io/files/${projectId}/${dataset}/${videoId}.${videoExt}`;
+    coverMedia = (
+      <video
+        src={videoUrl}
+        controls
+        poster={update.cover?.image ? urlFor(update.cover.image)?.url() : undefined}
+        className="w-full max-w-2xl mx-auto mb-10"
+      />
+    );
+  } else if (update.cover?.type === "image" && update.cover?.image) {
+    coverMedia = (
+      <div className="flex justify-center mb-10">
+        <Image
+          src={urlFor(update.cover.image)?.url() || ""}
+          alt={`${update.title} - Cover`}
+          width={570}
+          height={859}
+        />
+      </div>
+    );
+  }
+
   return (
     <main className="mx-auto min-h-screen max-w-8xl metropolitano container">
       <Link
@@ -77,6 +106,8 @@ export default async function UpdatePage({ params }: any) {
       <h1 className="text-3xl text-center md:text-4xl lg:text-6xl lg:text-center font-bold mb-8 mt-10">
         {update.title}
       </h1>
+      {/* Show cover media if available */}
+      {coverMedia}
       <div className="flex justify-center">
         {updateImages.length > 0 ? (
           <div className="relative w-3/4 max-w-md mb-10">

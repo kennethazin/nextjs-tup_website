@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const UPDATES_QUERY = `*[
   _type == "Update"
-]|order(updateDate desc)[0...16]{_id, title, slug, updateDate, images }`;
+]|order(updateDate desc)[0...16]{_id, title, slug, updateDate, images, cover }`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -52,19 +52,30 @@ export default async function UpdatesPage() {
 
   const updatesSection = {
     title: "Latest Updates",
-    items: updates.map((update) => ({
-      id: update._id,
-      title: update.title,
-      description: "", // Add a description if needed
-      href: `/updates/${update.slug?.current || ""}`,
-      image: update.images?.[0]
-        ? urlFor(update.images[0])
-        : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E", // Fallback background
-      width: 521, // Specify width
-      height: 651, // Specify height
-      date: update.updateDate ? new Date(update.updateDate) : undefined,
-      type: update.updateType,
-    })),
+    items: updates.map((update) => {
+      let imageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E";
+      if (update.cover?.type === "image" && update.cover?.image) {
+        imageUrl = urlFor(update.cover.image);
+      } else if (update.cover?.type === "video") {
+        // Use cover image as poster if available, else fallback
+        if (update.cover?.image) {
+          imageUrl = urlFor(update.cover.image);
+        }
+      } else if (update.images?.[0]) {
+        imageUrl = urlFor(update.images[0]);
+      }
+      return {
+        id: update._id,
+        title: update.title,
+        description: "",
+        href: `/updates/${update.slug?.current || ""}`,
+        image: imageUrl,
+        width: 521,
+        height: 651,
+        date: update.updateDate ? new Date(update.updateDate) : undefined,
+        type: update.updateType,
+      };
+    }),
   };
 
   return (
