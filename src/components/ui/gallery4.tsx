@@ -139,7 +139,7 @@ const Gallery4 = ({
                           <div className="absolute inset-0 bg-black/10" />
                         )}
                         <div className="absolute inset-0 h-full bg-[linear-gradient(hsl(var(--primary)/0),hsl(var(--primary)/0.4),hsl(var(--primary)/0.8)_100%)] mix-blend-multiply" />
-                        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-primary-foreground md:p-8">
+                        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-primary-foreground md:p-8 z-10">
                           <div className="flex flex-row items-center gap-x-5 mb-0">
                             <div className="text-xs sm:text-xs">
                               <Badge
@@ -175,6 +175,15 @@ const Gallery4 = ({
                           </div>
                         </div>
                       </>
+                    )}
+                    {galleryType === "event" && (
+                      <div
+                        className="pointer-events-none absolute inset-0 rounded-3xl z-0"
+                        style={{
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.0) 60%)",
+                        }}
+                      />
                     )}
                   </div>
                 </a>

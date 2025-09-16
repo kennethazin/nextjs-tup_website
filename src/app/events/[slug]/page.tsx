@@ -102,13 +102,7 @@ export default async function EventPage({
                           width={isHorizontal ? 859 : 570}
                           height={isHorizontal ? 570 : 859}
                         />
-                        {/* Gradient overlay for better text contrast */}
-                        <div
-                          className="pointer-events-none absolute inset-0 rounded-3xl"
-                          style={{
-                            background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.0) 60%)",
-                          }}
-                        />
+                        {/* Gradient overlay removed */}
                       </div>
                     </CarouselItem>
                   )
@@ -147,7 +141,9 @@ export default async function EventPage({
             </p>
           </div>
           <div className="border px-6 sm:px-10 py-0 rounded-full h-12 border-[#031100] items-center flex uppercase">
-            <p className="text-sm sm:text-base">{event._type}</p>
+            <p className="text-sm sm:text-base">
+              {event.eventType}
+            </p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-10 min-w-full  prose">

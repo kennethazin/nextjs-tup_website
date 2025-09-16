@@ -104,8 +104,6 @@ export default async function IndexPage() {
         <Hero title="Events" subtitle="Find out what's coming next" />
       </div>
       <div className="mt-20" id="upcoming-events">
-                <Gallery4 {...futureEvents} galleryType="event" />
-
         {futureEvents.items.length === 0 ? (
           <div className="text-center text-lg text-muted-foreground py-12">
             Sorry, we have no upcoming events at the moment!
