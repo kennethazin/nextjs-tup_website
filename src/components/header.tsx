@@ -52,6 +52,10 @@ function Header1() {
       title: "Our impact",
       href: "/impact",
     },
+    {
+      title: "Contact us",
+      href: "/contact",
+    },
   ];
 
   const [isOpen, setOpen] = useState(false);
