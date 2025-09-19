@@ -147,24 +147,24 @@
 h1,
 h2,
 h3 {
-  font-family: metropolitano;
+  font-family: metropolitano, 'Futura', 'Helvetica Neue', sans-serif;
 }
 
 
 
 .metropolitano {
-  font-family: metropolitano;
+  font-family: metropolitano, 'Futura', 'Helvetica Neue', sans-serif;
 }
 
 .futura {
-  font-family: futura;
+  font-family: futura, 'Helvetica', sans-serif;
 }
 
 p {
-  font-family: futura;
+  font-family: futura, 'Helvetica', sans-serif;
 }
 
 .li,
 ul {
-  font-family: futura;
+  font-family: futura, 'Helvetica', sans-serif;
 }
