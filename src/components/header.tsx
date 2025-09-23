@@ -52,10 +52,6 @@ function Header1() {
       title: "Our impact",
       href: "/impact",
     },
-    {
-      title: "Contact us",
-      href: "/contact",
-    },
   ];
 
   const [isOpen, setOpen] = useState(false);
@@ -201,6 +197,13 @@ function Header1() {
                     </div>
                   </div>
                 ))}
+                <Link
+                  href="/contact"
+                  className="metropolitano text-lg"
+                  onClick={() => setOpen(false)}
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
           )}
