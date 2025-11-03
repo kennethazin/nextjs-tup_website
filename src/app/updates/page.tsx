@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 import Hero from "@/components/hero";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Updates & News - The Useless Project",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 const UPDATES_QUERY = `*[
   _type == "Update"
-]|order(updateDate desc)[0...16]{_id, title, slug, updateDate, images, cover }`;
+]|order(updateDate desc)[0...200]{_id, title, slug, updateDate, images, cover, updateType }`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -50,32 +51,61 @@ export default async function UpdatesPage() {
     );
   }
 
+  // determine cutoff for 30 days
+  const cutoffMs = Date.now() - 30 * 24 * 60 * 60 * 1000;
+
+  // normalize and partition updates
+  const normalized = updates.map((u) => ({
+    ...u,
+    parsedDate: u.updateDate ? new Date(u.updateDate) : null,
+  }));
+
+  // helper: format Date as DD/MM/YYYY
+  const formatDate = (d: Date | null | undefined) => {
+    if (!d) return "";
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const latestUpdates = normalized.filter(
+    (u) => u.parsedDate && u.parsedDate.getTime() >= cutoffMs
+  );
+
+  const olderUpdates = normalized.filter(
+    (u) => !u.parsedDate || u.parsedDate.getTime() < cutoffMs
+  );
+
+  const mapToGalleryItem = (update: any) => {
+    let imageUrl =
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E";
+    if (update.cover?.type === "image" && update.cover?.image) {
+      imageUrl = urlFor(update.cover.image);
+    } else if (update.cover?.type === "video") {
+      // Use cover image as poster if available, else fallback
+      if (update.cover?.image) {
+        imageUrl = urlFor(update.cover.image);
+      }
+    } else if (update.images?.[0]) {
+      imageUrl = urlFor(update.images[0]);
+    }
+    return {
+      id: update._id,
+      title: update.title,
+      description: "",
+      href: `/updates/${update.slug?.current || ""}`,
+      image: imageUrl,
+      width: 521,
+      height: 651,
+      date: update.parsedDate ? new Date(update.parsedDate) : undefined,
+      type: update.updateType,
+    };
+  };
+
   const updatesSection = {
     title: "Latest Updates",
-    items: updates.map((update) => {
-      let imageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E";
-      if (update.cover?.type === "image" && update.cover?.image) {
-        imageUrl = urlFor(update.cover.image);
-      } else if (update.cover?.type === "video") {
-        // Use cover image as poster if available, else fallback
-        if (update.cover?.image) {
-          imageUrl = urlFor(update.cover.image);
-        }
-      } else if (update.images?.[0]) {
-        imageUrl = urlFor(update.images[0]);
-      }
-      return {
-        id: update._id,
-        title: update.title,
-        description: "",
-        href: `/updates/${update.slug?.current || ""}`,
-        image: imageUrl,
-        width: 521,
-        height: 651,
-        date: update.updateDate ? new Date(update.updateDate) : undefined,
-        type: update.updateType,
-      };
-    }),
+    items: latestUpdates.map(mapToGalleryItem),
   };
 
   return (
@@ -85,7 +115,58 @@ export default async function UpdatesPage() {
           <Hero title="What We've Been Up To at Useless HQ" subtitle="" />
         </div>
       </div>
+
       <Gallery4 galleryType={"update"} {...updatesSection} />
+
+      {/* All Updates (older than 30 days) */}
+      <section className="mt-12 mb-20">
+        <div className="max-w-8xl mx-auto px-4">
+          <h2 className="text-2xl font-semibold">All Updates</h2>
+          {olderUpdates.length === 0 ? (
+            <p className="text-gray-500 mt-4">No earlier updates.</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+              {olderUpdates.map((update) => {
+                const imageUrl = (() => {
+                  if (update.cover?.type === "image" && update.cover?.image) {
+                    return urlFor(update.cover.image);
+                  } else if (update.cover?.type === "video" && update.cover?.image) {
+                    return urlFor(update.cover.image);
+                  } else if (update.images?.[0]) {
+                    return urlFor(update.images[0]);
+                  }
+                  return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='521'%3E%3Crect width='521' height='521' fill='%23F3E8EF'/%3E%3C/svg%3E";
+                })();
+
+                return (
+                  <Link
+                    key={update._id}
+                    href={`/updates/${update.slug?.current || ""}`}
+                    className="group block"
+                  >
+                    <div className="w-full aspect-square bg-gray-100 overflow-hidden rounded-md">
+                      {/* image */}
+                      <img
+                        src={imageUrl}
+                        alt={update.title || "Update image"}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                      />
+                    </div>
+                    <div className="mt-2">
+                      <h3 className="text-sm font-medium">{update.title}</h3>
+                      {update.parsedDate ? (
+                        <p className="text-xs text-gray-500 mt-1">
+                          {formatDate(update.parsedDate)}
+                        </p>
+                      ) : null}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
     </main>
   );
 }
