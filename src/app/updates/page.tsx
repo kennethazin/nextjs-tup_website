@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { type SanityDocument } from "next-sanity";
 import { Gallery4 } from "@/components/ui/gallery4";
 import imageUrlBuilder from "@sanity/image-url";
@@ -132,12 +131,13 @@ export default async function UpdatesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
               {olderUpdates.map((update) => {
                 const imageUrl = (() => {
-                  if (update.cover?.type === "image" && update.cover?.image) {
-                    return urlFor(update.cover.image);
-                  } else if (update.cover?.type === "video" && update.cover?.image) {
-                    return urlFor(update.cover.image);
-                  } else if (update.images?.[0]) {
-                    return urlFor(update.images[0]);
+                  // @ts-ignore
+                  if (update.cover?.type === "image" && update.cover?.image)  { // @ts-ignore
+                    return urlFor(update.cover.image); // @ts-ignore
+                  } else if (update.cover?.type === "video" && update.cover?.image) {// @ts-ignore
+                    return urlFor(update.cover.image);// @ts-ignore
+                  } else if (update.images?.[0]) {// @ts-ignore
+                    return urlFor(update.images[0]);// @ts-ignore
                   }
                   return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='521'%3E%3Crect width='521' height='521' fill='%23F3E8EF'/%3E%3C/svg%3E";
                 })();
