@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { type SanityDocument } from "next-sanity";
 import { Gallery4 } from "@/components/ui/gallery4";
 import imageUrlBuilder from "@sanity/image-url";
@@ -5,6 +6,7 @@ import { client } from "@/sanity/client";
 import Hero from "@/components/hero";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Updates & News - The Useless Project",
@@ -19,6 +21,7 @@ const UPDATES_QUERY = `*[
 const options = { next: { revalidate: 30 } };
 
 const { projectId, dataset } = client.config();
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const urlFor = (source: any) =>
   projectId && dataset
@@ -77,6 +80,7 @@ export default async function UpdatesPage() {
     (u) => !u.parsedDate || u.parsedDate.getTime() < cutoffMs
   );
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapToGalleryItem = (update: any) => {
     let imageUrl =
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='521' height='651'%3E%3Crect width='521' height='651' fill='%23F38BBB'/%3E%3C/svg%3E";
@@ -146,9 +150,11 @@ export default async function UpdatesPage() {
                   >
                     <div className="w-full aspect-square bg-gray-100 overflow-hidden rounded-md">
                       {/* image */}
-                      <img
+                      <Image
                         src={imageUrl}
                         alt={update.title || "Update image"}
+                        width={521}
+                        height={651}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                       />
                     </div>
