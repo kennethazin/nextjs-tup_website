@@ -34,14 +34,14 @@ function Partners() {
           className="h-[60px] w-auto"
         />
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/European_Parliament_logo.svg/1200px-European_Parliament_logo.svg.png"
+          src="/sponsors/euparliment.png"
           alt="EU Parliament logo"
           width={120}
           height={120}
           className="h-[60px] w-auto"
         />
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/UNHCR.svg/2560px-UNHCR.svg.png"
+          src="/sponsors/unhcr.png"
           alt="UNHCR logo"
           width={120}
           height={120}
